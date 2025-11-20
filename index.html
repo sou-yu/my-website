@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九州・福岡＆熊本 ファミリー旅行のしおり</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* 基本設定 */
+        body { font-family: 'Noto Sans JP', sans-serif; background-color: #f0f2f5; color: #444; line-height: 1.6; margin: 0; padding: 0; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* ヘッダー */
+        header { 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1565597694889-16ad5c6947d6?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: white; 
+            text-align: center; 
+            padding: 80px 20px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        h1 { font-family: 'Montserrat', sans-serif; font-size: 2.8em; margin: 0; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .subtitle { font-size: 1.2em; margin-top: 10px; font-weight: 500; background: rgba(255,255,255,0.2); display: inline-block; padding: 5px 15px; border-radius: 20px; backdrop-filter: blur(5px); }
+
+        /* コンテナ */
+        .container { max-width: 1000px; margin: -40px auto 40px; padding: 0 20px; position: relative; z-index: 10; }
+
+        /* カード共通 */
+        .day-card { background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 40px; overflow: hidden; }
+        
+        /* 日付ヘッダー */
+        .day-header { 
+            background: #333; 
+            color: white; 
+            padding: 20px 30px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .day-label { font-family: 'Montserrat', sans-serif; font-size: 1.5em; font-weight: bold; color: #4facfe; }
+        .day-date { font-size: 1.1em; font-weight: 500; opacity: 0.9; }
+
+        /* タイムラインエリア */
+        .timeline-section { padding: 30px 30px 10px; background-color: #fafafa; border-bottom: 1px solid #eee; }
+        .timeline-title { font-size: 1.2em; font-weight: bold; margin-bottom: 20px; color: #555; border-left: 5px solid #4facfe; padding-left: 10px; }
+        
+        .timeline { list-style: none; padding: 0; margin: 0; position: relative; }
+        /* 縦線を少し右に移動して、時間の文字と重ならないように調整 */
+        .timeline::before { content: ''; position: absolute; top: 0; bottom: 0; left: 95px; width: 3px; background: #e0e0e0; }
+        
+        .timeline-item { display: flex; margin-bottom: 25px; position: relative; align-items: baseline; }
+        
+        /* 時間表示のスタイル変更点：大きく、太く、濃く */
+        .timeline-time { 
+            width: 80px; /* 幅を確保 */
+            font-weight: 800; /* 極太フォント */
+            color: #222; /* 真っ黒に近い色で視認性アップ */
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 1.4em; /* 文字サイズを大きく */
+            text-align: right; 
+            padding-right: 30px; /* 線との距離 */
+            z-index: 1; 
+            line-height: 1;
+        }
+        
+        /* マーカーの位置調整 */
+        .timeline-marker { width: 14px; height: 14px; background: #fff; border: 4px solid #4facfe; border-radius: 50%; position: absolute; left: 89px; top: 3px; z-index: 2; box-shadow: 0 0 0 2px #fff; }
+        
+        .timeline-content { flex: 1; padding-left: 25px; }
+        .timeline-content h4 { margin: 0 0 5px; font-size: 1.1em; color: #333; font-weight: bold; }
+        .timeline-content p { margin: 0; font-size: 0.95em; color: #555; }
+
+        /* スポット詳細エリア */
+        .spots-area { padding: 30px; }
+        .spot-block { display: flex; gap: 30px; margin-bottom: 40px; border-bottom: 1px dashed #ddd; padding-bottom: 30px; }
+        .spot-block:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+
+        .spot-info { flex: 1; min-width: 300px; }
+        .spot-name { font-size: 1.6em; margin: 0 0 15px; color: #333; font-weight: bold; }
+        .spot-desc { margin-bottom: 15px; color: #555; text-align: justify; }
+        .spot-img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; padding: 8px 16px; border-radius: 50px; font-size: 0.9em; font-weight: bold; text-decoration: none; }
+        .btn-web { background-color: #eaf4ff; color: #007bff; }
+        .btn-web:hover { background-color: #d0e4ff; }
+        .btn-map { background-color: #eaffea; color: #28a745; }
+        .btn-map:hover { background-color: #d4ffce; }
+        .btn svg { margin-right: 6px; }
+
+        .map-frame { flex: 1; min-width: 300px; height: 350px; border-radius: 12px; overflow: hidden; border: 1px solid #ddd; background: #eee; }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .container { padding: 0 15px; margin-top: -20px; }
+            .spot-block { flex-direction: column; }
+            .map-frame { height: 250px; }
+            .timeline::before { left: 85px; } /* スマホでの線位置微調整 */
+            .timeline-marker { left: 79px; }
+            .timeline-time { font-size: 1.2em; width: 70px; padding-right: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>九州・福岡＆熊本</h1>
+    <div class="subtitle">2泊3日 ファミリー旅行のしおり</div>
+</header>
+
+<div class="container">
+
+    <div class="day-card">
+        <div class="day-header">
+            <span class="day-label">DAY 1</span>
+            <span class="day-date">11/22 (金) - 福岡満喫</span>
+        </div>
+
+        <div class="timeline-section">
+            <div class="timeline-title">本日のスケジュール</div>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <div class="timeline-time">13:45</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>福岡空港 到着</h4>
+                        <p>地下鉄で博多駅へ移動（約5分）</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">14:30</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>ホテルチェックイン</h4>
+                        <p>クインテッサホテル福岡博多へ荷物を預ける</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">15:40</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>BOSS E・ZO FUKUOKA</h4>
+                        <p>PayPayドーム横でアクティビティ体験</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">18:30</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>博多駅周辺で夕食</h4>
+                        <p>もつ鍋（おおやま、一藤など）</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="spots-area">
+            <div class="spot-block">
+                <div class="spot-info">
+                    <h3 class="spot-name">BOSS E・ZO FUKUOKA</h3>
+                    <img src="https://search.yahoo.co.jp/image/detail?p=BOSS%20E%E3%83%BBZO%20FUKUOKA%20%E9%AB%98%E7%94%BB%E8%B3%AA&imgurl=https%3A%2F%2Fmsp.c.yimg.jp%2Fimages%2Fv2%2FFUTi93tXq405grZVGgDqGz2tSDyFXaisKLfIhnWelqhNA2cn7f6BxBamjfgFVuiRdGgFOeKywbvwOCjYg77Rsho_G9YQ7LXP0LFVi1hziuVu4tdjT0FNAOvnOaTljffOtEESB_06STcV3LeDaNd6PF_ntNHSS_PHsWl9XwiTH8oo7DSJiqZX5a_WnTAPwKruFRfpvh7GvXq9Ncfh_qxP7oUTq49sw7I1S_HvXx7fokFAVYjoDR7IF7YJo6iBWSFQjqFB4EKQxKI2yTNOgy4Ec59EZVR028uNokKTKxRSW0iBEC0WqhZL19ufGXIEN41ehCMMART10XB2GlT736NDkA%3D%3D%2FEE383BBZOE5A496E8A6B3E5A49C.jpg&refurl=https%3A%2F%2Fe-zofukuoka.com%2Fnews%2Fmlbcafe-fukuoka%2F20200827798%2F&title=E%E3%83%BBZO%E3%81%A7%E3%82%82%E3%82%BF%E3%82%AB%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%92%E6%A5%BD%E3%81%97%E3%82%82%E3%81%86%E2%99%A1%EF%BD%9CBOSS%20E%E3%83%BBZO%20FUKUOKA%EF%BC%88%E3%83%9C%E3%82%B9%20...&domain=BOSS%20E%E3%83%BBZO%20FUKUOKA&w=800&h=553&faviconurl=https%3A%2F%2Fencrypted-tbn3.gstatic.com%2FfaviconV2%3Furl%3Dhttps%3A%2F%2Fe-zofukuoka.com%26client%3DIMAGE_SEARCH%26size%3D16%26type%3DFAVICON%26fallback_opts%3DTYPE%2CSIZE%2CURL%26nfrp%3D2&imagedate=&sig=4c56a0bdd6b625e77fabb57bf409e21dd4fddf48a9c58e0109d6cd44471ea4ff0fd4d727d6d618a3931c18cf23881479fceef489baf6602c11fed6fd8ba93e97" alt="E・ZO FUKUOKA" class="spot-img">
+                    <p class="spot-desc">絶景アトラクション「すべZO」やチームラボフォレストなど、子供から大人まで楽しめる複合エンタメ施設です。</p>
+                    <div class="btn-group">
+                        <a href="https://e-zofukuoka.com/" target="_blank" class="btn btn-web">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.676.275-1.114 1.045-1.114 1.923v.256l-.008.274M8 2.93c.189 0 .375.016.556.046.7-.132 1.396.113 1.764.733.376.63.493 1.403.493 2.274a4.7 4.7 0 0 1-.008.274v.256c0 .878-.438 1.648-1.114 1.923M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8z"/></svg>公式サイト
+                        </a>
+                        <a href="https://goo.gl/maps/JkQ9g3yK6y92" target="_blank" class="btn btn-map">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>地図を開く
+                        </a>
+                    </div>
+                </div>
+                <iframe class="map-frame" src="https://maps.google.com/maps?q=BOSS+E+ZO+FUKUOKA&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+
+            <div class="spot-block">
+                <div class="spot-info">
+                    <h3 class="spot-name">もつ鍋 おおやま（博多駅）</h3>
+                    <img src="https://images.unsplash.com/photo-1631857966052-6214443d4027?auto=format&fit=crop&w=600&q=80" alt="もつ鍋" class="spot-img">
+                    <p class="spot-desc">博多名物もつ鍋。味噌味が濃厚で人気です。お子様でも食べやすい味付けで、家族連れにもおすすめ。</p>
+                    <div class="btn-group">
+                        <a href="https://www.motu-ooyama.com/" target="_blank" class="btn btn-web">公式サイト</a>
+                    </div>
+                </div>
+                <iframe class="map-frame" src="https://maps.google.com/maps?q=もつ鍋おおやま+博多駅&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header">
+            <span class="day-label">DAY 2</span>
+            <span class="day-date">11/23 (土) - 熊本へ小旅行</span>
+        </div>
+
+        <div class="timeline-section">
+            <div class="timeline-title">本日のスケジュール</div>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <div class="timeline-time">10:20</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>博多駅 発</h4>
+                        <p>新幹線 みずほ605号</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">10:52</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>熊本駅 到着</h4>
+                        <p>路面電車で「熊本城・市役所前」へ</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">11:15</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>熊本城 観光</h4>
+                        <p>天守閣見学</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">12:30</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>城彩苑で昼食</h4>
+                        <p>あか牛丼、太平燕など</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">14:00</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>熊本市内観光</h4>
+                        <p>アーケード街、ルフィ像（県庁）へ</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">17:04</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>熊本駅 発</h4>
+                        <p>新幹線 さくら568号 → 17:43 博多着</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="spots-area">
+            <div class="spot-block">
+                <div class="spot-info">
+                    <h3 class="spot-name">熊本城</h3>
+                    <img src="https://images.unsplash.com/photo-1570592603675-91a84433c862?auto=format&fit=crop&w=600&q=80" alt="熊本城" class="spot-img">
+                    <p class="spot-desc">日本三名城の一つ。復興中の石垣や、再建された天守閣内部の展示は必見です。</p>
+                    <div class="btn-group">
+                        <a href="https://kumamoto-guide.jp/kumamotojo/" target="_blank" class="btn btn-web">公式サイト</a>
+                        <a href="https://goo.gl/maps/kumamotojo" target="_blank" class="btn btn-map">地図を開く</a>
+                    </div>
+                </div>
+                <iframe class="map-frame" src="https://maps.google.com/maps?q=熊本城&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+
+            <div class="spot-block">
+                <div class="spot-info">
+                    <h3 class="spot-name">ルフィ像（熊本県庁）</h3>
+                    <img src="https://images.unsplash.com/photo-1619360495827-c99d7d27a466?auto=format&fit=crop&w=600&q=80" alt="熊本" class="spot-img">
+                    <p class="spot-desc">熊本県庁プロムナードにある、ONE PIECEのルフィ像。復興のシンボルとして設置されました。</p>
+                </div>
+                <iframe class="map-frame" src="https://maps.google.com/maps?q=熊本県庁+ルフィ像&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header">
+            <span class="day-label">DAY 3</span>
+            <span class="day-date">11/24 (日) - 歴史と聖地巡礼</span>
+        </div>
+
+        <div class="timeline-section">
+            <div class="timeline-title">本日のスケジュール</div>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <div class="timeline-time">09:00</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>チェックアウト</h4>
+                        <p>荷物をホテルへ預け、西鉄電車で太宰府へ</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">10:20</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>太宰府天満宮 参拝</h4>
+                        <p>九州国立博物館も見学</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">13:00</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>宝満宮 竈門神社</h4>
+                        <p>「鬼滅の刃」聖地。バス「まほろば号」で移動</p>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-time">15:30</div>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>福岡空港 到着</h4>
+                        <p>ラーメン滑走路・お土産購入</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="spots-area">
+            <div class="spot-block">
+                <div class="spot-info">
+                    <h3 class="spot-name">太宰府天満宮</h3>
+                    <img src="https://images.unsplash.com/photo-1624622220361-9d135ccb1828?auto=format&fit=crop&w=600&q=80" alt="太宰府天満宮" class="spot-img">
+                    <p class="spot-desc">学問の神様・菅原道真公を祀る神社。参道での食べ歩きも楽しみの一つです。</p>
+                    <div class="btn-group">
+                        <a href="https://www.dazaifutenmangu.or.jp/" target="_blank" class="btn btn-web">公式サイト</a>
+                        <a href="https://goo.gl/maps/dazaifu" target="_blank" class="btn btn-map">地図を開く</a>
+                    </div>
+                </div>
+                <iframe class="map-frame" src="https://maps.google.com/maps?q=太宰府天満宮&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+
+            <div class="spot-block">
+                <div class="spot-info">
+                    <h3 class="spot-name">宝満宮 竈門神社</h3>
+                    <img src="https://images.unsplash.com/photo-1604650749216-62b3b76992c6?auto=format&fit=crop&w=600&q=80" alt="竈門神社" class="spot-img">
+                    <p class="spot-desc">縁結びの神様として有名ですが、「鬼滅の刃」の聖地としても話題。モダンで美しい社務所も必見です。</p>
+                </div>
+                <iframe class="map-frame" src="https://maps.google.com/maps?q=宝満宮竈門神社&t=&z=14&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
