@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#dff4ff"/>
+      <stop offset="100%" stop-color="#fff0d9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="760" y="160" width="250" height="520" rx="24" fill="#f6fbff" stroke="#1786d8" stroke-opacity=".22"/>
+  <rect x="810" y="220" width="60" height="380" fill="#1786d8" fill-opacity=".12"/>
+  <rect x="900" y="220" width="60" height="380" fill="#1786d8" fill-opacity=".18"/>
+  <rect x="140" y="620" width="920" height="110" rx="55" fill="#ffffff" fill-opacity=".72"/>
+  <text x="140" y="170" fill="#1786d8" font-family="Noto Sans JP, sans-serif" font-size="44" font-weight="700">Yokohama Stay</text>
+  <text x="140" y="260" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="76" font-weight="800">シタディーンハーバーフロント横浜</text>
+  <text x="140" y="350" fill="#5d7083" font-family="Noto Sans JP, sans-serif" font-size="34">日本大通り駅そばの宿泊拠点</text>
+  <text x="140" y="690" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="34" font-weight="700">Hotel Base</text>
+</svg>

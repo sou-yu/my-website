@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="sky" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#dff4ff"/>
+      <stop offset="100%" stop-color="#fff4e1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect y="520" width="1200" height="170" fill="#8ed0ef"/>
+  <rect y="690" width="1200" height="210" fill="#9bd08a"/>
+  <path d="M880 520 C930 460, 980 470, 1040 520" fill="none" stroke="#ffffff" stroke-width="10"/>
+  <rect x="180" y="200" width="12" height="360" fill="#7a5b42"/>
+  <circle cx="186" cy="180" r="70" fill="#58b87f"/>
+  <text x="120" y="120" fill="#1786d8" font-family="Noto Sans JP, sans-serif" font-size="44" font-weight="700">Bay Walk</text>
+  <text x="120" y="220" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="84" font-weight="800">山下公園</text>
+  <text x="120" y="310" fill="#5d7083" font-family="Noto Sans JP, sans-serif" font-size="34">海沿いでひと息つく夕方スポット</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#dff4ff"/>
+      <stop offset="100%" stop-color="#eef6dd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="800" cy="300" r="90" fill="#7ea59a"/>
+  <rect x="680" y="370" width="240" height="220" rx="120" fill="#7ea59a"/>
+  <rect x="620" y="560" width="360" height="120" rx="40" fill="#7ea59a" fill-opacity=".72"/>
+  <text x="100" y="170" fill="#1786d8" font-family="Noto Sans JP, sans-serif" font-size="44" font-weight="700">Historic Kamakura</text>
+  <text x="100" y="265" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="76" font-weight="800">鎌倉大仏</text>
+  <text x="100" y="355" fill="#5d7083" font-family="Noto Sans JP, sans-serif" font-size="34">高徳院の定番スポット</text>
+</svg>

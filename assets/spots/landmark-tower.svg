@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#e7f5ff"/>
+      <stop offset="100%" stop-color="#fff1dd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="760" y="120" width="120" height="540" rx="16" fill="#7f9db8"/>
+  <rect x="785" y="160" width="20" height="440" fill="#dce7f0"/>
+  <rect x="835" y="160" width="20" height="440" fill="#dce7f0"/>
+  <rect x="640" y="660" width="360" height="90" rx="22" fill="#ffffff" fill-opacity=".72"/>
+  <text x="120" y="170" fill="#1786d8" font-family="Noto Sans JP, sans-serif" font-size="44" font-weight="700">Night View</text>
+  <text x="120" y="265" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="76" font-weight="800">横浜ランドマークタワー</text>
+  <text x="120" y="355" fill="#5d7083" font-family="Noto Sans JP, sans-serif" font-size="34">みなとみらいの夜景スポット</text>
+</svg>

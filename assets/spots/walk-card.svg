@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#ebf9f2"/>
+      <stop offset="100%" stop-color="#fff4e1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="700" cy="220" r="64" fill="#1f8d60"/>
+  <path d="M660 330 L760 330 L820 520 L740 520 L700 430 L650 520 L570 520 Z" fill="#1f8d60" fill-opacity=".8"/>
+  <text x="120" y="180" fill="#1f8d60" font-family="Noto Sans JP, sans-serif" font-size="58" font-weight="700">Walk</text>
+  <text x="120" y="680" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="88" font-weight="800">徒歩移動</text>
+</svg>

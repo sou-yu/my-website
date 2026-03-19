@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#e6f7ff"/>
+      <stop offset="100%" stop-color="#fff7e7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <ellipse cx="760" cy="520" rx="270" ry="150" fill="#28a86f" fill-opacity=".22"/>
+  <ellipse cx="760" cy="520" rx="220" ry="110" fill="#28a86f" fill-opacity=".38"/>
+  <ellipse cx="760" cy="520" rx="150" ry="70" fill="#ffffff" fill-opacity=".9"/>
+  <rect x="520" y="340" width="480" height="60" rx="30" fill="#1786d8" fill-opacity=".14"/>
+  <text x="110" y="180" fill="#1786d8" font-family="Noto Sans JP, sans-serif" font-size="44" font-weight="700">Game Day</text>
+  <text x="110" y="270" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="82" font-weight="800">横浜スタジアム</text>
+  <text x="110" y="360" fill="#5d7083" font-family="Noto Sans JP, sans-serif" font-size="34">プロ野球観戦と球場グルメ</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#eef1ff"/>
+      <stop offset="100%" stop-color="#fff4e1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="620" y="180" width="280" height="430" rx="24" fill="#5a5bd5" fill-opacity=".22"/>
+  <rect x="680" y="250" width="60" height="280" fill="#ffffff"/>
+  <rect x="780" y="250" width="60" height="280" fill="#ffffff" fill-opacity=".8"/>
+  <text x="120" y="180" fill="#5a5bd5" font-family="Noto Sans JP, sans-serif" font-size="58" font-weight="700">Hotel</text>
+  <text x="120" y="680" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="88" font-weight="800">ホテル</text>
+</svg>

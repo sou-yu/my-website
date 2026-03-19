@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff6e8"/>
+      <stop offset="100%" stop-color="#e7f4ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="210" y="280" width="180" height="360" rx="18" fill="#ffffff" fill-opacity=".8"/>
+  <rect x="430" y="230" width="180" height="410" rx="18" fill="#ffffff" fill-opacity=".82"/>
+  <rect x="650" y="260" width="180" height="380" rx="18" fill="#ffffff" fill-opacity=".86"/>
+  <rect x="870" y="210" width="160" height="430" rx="18" fill="#ffffff" fill-opacity=".8"/>
+  <text x="120" y="170" fill="#1786d8" font-family="Noto Sans JP, sans-serif" font-size="44" font-weight="700">Shopping Walk</text>
+  <text x="120" y="265" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="82" font-weight="800">小町通り</text>
+  <text x="120" y="355" fill="#5d7083" font-family="Noto Sans JP, sans-serif" font-size="34">食べ歩きとお土産散策</text>
+</svg>

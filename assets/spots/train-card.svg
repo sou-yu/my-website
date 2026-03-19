@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#dff4ff"/>
+      <stop offset="100%" stop-color="#eef6ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect x="180" y="280" width="840" height="260" rx="40" fill="#1786d8" fill-opacity=".14"/>
+  <rect x="250" y="340" width="700" height="150" rx="28" fill="#ffffff"/>
+  <circle cx="360" cy="525" r="42" fill="#1786d8" fill-opacity=".4"/>
+  <circle cx="840" cy="525" r="42" fill="#1786d8" fill-opacity=".4"/>
+  <text x="120" y="190" fill="#1786d8" font-family="Noto Sans JP, sans-serif" font-size="58" font-weight="700">Rail Move</text>
+  <text x="120" y="680" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="88" font-weight="800">電車移動</text>
+</svg>
