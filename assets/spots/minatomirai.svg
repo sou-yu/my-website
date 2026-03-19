@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#e5f6ff"/>
+      <stop offset="100%" stop-color="#fff1dd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <rect y="620" width="1200" height="280" fill="#8ed0ef"/>
+  <rect x="620" y="250" width="120" height="350" rx="14" fill="#7f9db8"/>
+  <rect x="770" y="180" width="100" height="420" rx="14" fill="#5f84a1"/>
+  <rect x="900" y="320" width="120" height="280" rx="14" fill="#99b7cb"/>
+  <rect x="520" y="560" width="560" height="30" rx="15" fill="#ffffff" fill-opacity=".6"/>
+  <circle cx="250" cy="180" r="62" fill="#ffd57a"/>
+  <text x="100" y="165" fill="#1786d8" font-family="Noto Sans JP, sans-serif" font-size="52" font-weight="700">Minato Mirai</text>
+  <text x="100" y="265" fill="#18324a" font-family="Noto Sans JP, sans-serif" font-size="94" font-weight="800">みなとみらい</text>
+  <text x="100" y="350" fill="#5d7083" font-family="Noto Sans JP, sans-serif" font-size="34">海沿い散策と夜景を楽しむ横浜の中心エリア</text>
+</svg>

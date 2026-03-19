@@ -7,6 +7,7 @@ const officialLinks = {
   kotokuin: "https://www.kotoku-in.jp/",
   akarenga: "https://www.yokohama-akarenga.jp/",
   landmark: "https://www.yokohama-landmark.jp/",
+  minatomirai: "https://minatomirai21.com/",
   seaparadise: "https://www.seaparadise.co.jp/",
   keikarou: "https://keikarou.com/",
   sizzler: "https://www.sizzler.jp/",
@@ -27,6 +28,7 @@ const scheduleImages = {
   kamakuraDaibutsu: "./assets/spots/kamakura-daibutsu.svg",
   komachi: "./assets/spots/komachi-street.svg",
   akarenga: "./assets/spots/akarenga.svg",
+  minatomirai: "./assets/spots/minatomirai.svg",
   landmark: "./assets/spots/landmark-tower.svg",
   seaparadise: "./assets/spots/seaparadise.svg"
 };
@@ -269,9 +271,9 @@ const tripDays = [
       { time: "13:00", type: "meal", image: scheduleImages.meal, title: "鎌倉ランチ", detail: "しらすや、松原庵を候補に。しらす丼中心で考える日。" },
       { time: "14:00", type: "spot", image: scheduleImages.komachi, title: "小町通り", detail: "食べ歩きや軽い買い物の時間。" },
       { time: "15:30", type: "train", image: scheduleImages.train, title: "鎌倉を出発してみなとみらいへ", detail: "16:30 みなとみらい着想定。" },
-      { time: "16:30", type: "spot", image: scheduleImages.akarenga, title: "横浜赤レンガ倉庫", detail: "夕方の港エリア散策。" },
-      { time: "18:00", type: "spot", image: scheduleImages.landmark, title: "横浜ランドマークタワー", detail: "夜景と夕食導線を兼ねた立ち寄り。" },
-      { time: "18:30", type: "meal", image: scheduleImages.meal, title: "シズラー ランドマークプラザ店", detail: "ランドマーク周辺でそのまま夕食。" },
+      { time: "16:30", type: "spot", image: scheduleImages.minatomirai, title: "みなとみらい", detail: "みなとみらい到着後に海沿いと周辺施設をゆったり散策する流れです。" },
+      { time: "18:00", type: "spot", image: scheduleImages.akarenga, title: "横浜赤レンガ倉庫", detail: "夕方から夜にかけて港エリアを散策し、そのまま夕食へ。" },
+      { time: "18:30", type: "meal", image: scheduleImages.akarenga, title: "赤レンガ倉庫で夕食", detail: "館内や周辺のレストランで夕食を取る流れに変更。" },
       { time: "19:30", type: "hotel", image: scheduleImages.hotel, title: "ホテルへ戻る", detail: "翌日の八景島に備えて帰着。" }
     ],
     spots: [
@@ -305,20 +307,20 @@ const tripDays = [
       {
         name: "横浜赤レンガ倉庫",
         area: "みなとみらい",
-        stay: "16:30 - 17:40",
+        stay: "18:00 - 19:00",
         image: "./assets/spots/akarenga.jpg",
-        description: "夕方の海沿い散策に向いた定番スポット。写真も撮りやすい時間帯です。",
+        description: "夕方の海沿い散策に向いた定番スポット。館内レストランやショップもあり、そのまま夕食までつなげやすいです。",
         address: "神奈川県横浜市中区新港1-1",
         officialUrl: officialLinks.akarenga
       },
       {
-        name: "横浜ランドマークタワー",
+        name: "みなとみらい",
         area: "みなとみらい",
-        stay: "18:00 - 19:00",
-        image: "./assets/spots/landmark-tower.jpg",
-        description: "夜景と夕食導線をまとめやすい高層スポット。ランドマークプラザも使いやすいです。",
-        address: "神奈川県横浜市西区みなとみらい2-2-1",
-        officialUrl: officialLinks.landmark
+        stay: "16:30 - 17:40",
+        image: "./assets/spots/minatomirai.jpg",
+        description: "海沿いの景色や商業施設、夜景をまとめて楽しめる横浜の定番エリアです。赤レンガ倉庫方面への移動もつなぎやすいです。",
+        address: "神奈川県横浜市西区みなとみらい",
+        officialUrl: officialLinks.minatomirai
       }
     ],
     trains: [
@@ -348,7 +350,7 @@ const tripDays = [
           "鎌倉駅から横浜駅へ戻る。",
           "横浜駅でみなとみらい線へ乗換し、赤レンガエリアへ。"
         ],
-        note: "赤レンガ倉庫最寄りは馬車道駅または日本大通り駅側も使えます。歩きやすいルートを現地で選んでください。"
+        note: "みなとみらい到着後は先にエリア散策を行い、その後赤レンガ倉庫へ流れる構成です。"
       },
       {
         title: "みなとみらい → 日本大通り駅 / ホテル",
@@ -359,7 +361,7 @@ const tripDays = [
         lines: ["みなとみらい線"],
         transferCount: 0,
         steps: ["ランドマーク周辺からみなとみらい線で日本大通り駅へ戻る。"],
-        note: "夕食場所によっては徒歩比率が高くなるため、疲れていればタクシー利用も検討しやすい区間です。"
+        note: "赤レンガ倉庫で夕食を取った後の戻りになるため、帰りは徒歩またはみなとみらい線利用のどちらでも調整しやすい区間です。"
       }
     ],
     meals: [
@@ -376,10 +378,10 @@ const tripDays = [
         url: officialLinks.matsubaraan
       },
       {
-        name: "シズラー ランドマークプラザ店",
+        name: "赤レンガ倉庫で夕食",
         timing: "18:30 夕食",
-        description: "みなとみらい滞在の締めに寄りやすい夕食先です。",
-        url: officialLinks.sizzler
+        description: "赤レンガ倉庫館内や周辺の店舗で夕食を取る前提に変更しています。海沿いの雰囲気のまま夜時間を過ごせます。",
+        url: officialLinks.akarenga
       }
     ],
     notes: [
@@ -420,6 +422,13 @@ const tripDays = [
         image: scheduleImages.seaparadise,
         title: "八景島観光",
         detail: "アクアミュージアムとプレジャーランドを14:00まで楽しむ構成です。"
+      },
+      {
+        time: "12:00",
+        type: "meal",
+        image: scheduleImages.meal,
+        title: "八景島ランチ",
+        detail: "園内で昼食休憩。午後の観光に向けて、このタイミングで食事を取る想定です。"
       },
       { time: "14:00", type: "train", image: scheduleImages.train, title: "八景島を出発", detail: "15:00 ホテル着想定。荷物回収へ戻ります。" },
       {
@@ -519,7 +528,14 @@ const tripDays = [
         note: "この区間は県外移動を含むため、地図表示ではなく時刻と乗換情報中心で確認する構成です。"
       }
     ],
-    meals: [],
+    meals: [
+      {
+        name: "八景島ランチ",
+        timing: "12:00 昼食",
+        description: "シーパラダイス園内で昼食を取る想定です。混雑しやすい時間帯なので、少し早めに動くと回しやすくなります。",
+        url: officialLinks.seaparadise
+      }
+    ],
     notes: [
       "八景島は園内移動も広いので、アクアミュージアムとプレジャーランドに優先順位を置くと回しやすいです。",
       "帰路はホテルでの荷物回収がボトルネックになるため、朝のうちにまとめておくと安心です。",
