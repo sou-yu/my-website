@@ -52,6 +52,8 @@ const tripDays = [
       enabled: true,
       coverage: "神奈川県内の移動のみ地図化",
       note: "県外区間の名古屋から新横浜までは地図対象外です。神奈川県内はホテル、横浜スタジアム、山下公園、中華街をルート表示しています。",
+      embedUrl:
+        "https://www.google.com/maps?q=35.4439,139.6457&z=14&hl=ja&output=embed",
       origin: "神奈川県横浜市中区日本大通5-2 シタディーンハーバーフロント横浜",
       destination: "神奈川県横浜市中区日本大通5-2 シタディーンハーバーフロント横浜",
       waypoints: [
@@ -239,6 +241,8 @@ const tripDays = [
       enabled: true,
       coverage: "神奈川県内ルートを地図化",
       note: "ホテルから鎌倉、みなとみらい、ホテルまでの主要ルートです。詳細な徒歩導線は現地でGoogle Mapsを開いて確認してください。",
+      embedUrl:
+        "https://www.google.com/maps?q=35.3975,139.6007&z=10&hl=ja&output=embed",
       origin: "神奈川県横浜市中区日本大通5-2 シタディーンハーバーフロント横浜",
       destination: "神奈川県横浜市中区日本大通5-2 シタディーンハーバーフロント横浜",
       waypoints: [
@@ -685,7 +689,7 @@ function renderSummary(day) {
 }
 
 function renderMap(day) {
-  const embedUrl = buildGoogleEmbedUrl(day.map);
+  const embedUrl = day.map.embedUrl || buildGoogleEmbedUrl(day.map);
   const openUrl = buildGoogleMapsLink(day.map);
 
   return `
