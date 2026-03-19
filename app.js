@@ -272,8 +272,8 @@ const tripDays = [
       { time: "14:00", type: "spot", image: scheduleImages.komachi, title: "小町通り", detail: "食べ歩きや軽い買い物の時間。" },
       { time: "15:30", type: "train", image: scheduleImages.train, title: "鎌倉を出発してみなとみらいへ", detail: "16:30 みなとみらい着想定。" },
       { time: "16:30", type: "spot", image: scheduleImages.minatomirai, title: "みなとみらい", detail: "みなとみらい到着後に海沿いと周辺施設をゆったり散策する流れです。" },
-      { time: "18:00", type: "spot", image: scheduleImages.akarenga, title: "横浜赤レンガ倉庫", detail: "夕方から夜にかけて港エリアを散策し、そのまま夕食へ。" },
-      { time: "18:30", type: "meal", image: scheduleImages.akarenga, title: "赤レンガ倉庫で夕食", detail: "館内や周辺のレストランで夕食を取る流れに変更。" },
+      { time: "17:30", type: "spot", image: scheduleImages.akarenga, title: "横浜赤レンガ倉庫", detail: "夕方から夜にかけて港エリアを散策し、そのまま夕食へ。" },
+      { time: "18:00", type: "meal", image: scheduleImages.akarenga, title: "赤レンガ倉庫で夕食", detail: "館内や周辺のレストランで夕食を取る流れに変更。" },
       { time: "19:30", type: "hotel", image: scheduleImages.hotel, title: "ホテルへ戻る", detail: "翌日の八景島に備えて帰着。" }
     ],
     spots: [
@@ -307,7 +307,7 @@ const tripDays = [
       {
         name: "横浜赤レンガ倉庫",
         area: "みなとみらい",
-        stay: "18:00 - 19:00",
+        stay: "17:30 - 19:00",
         image: "./assets/spots/akarenga.jpg",
         description: "夕方の海沿い散策に向いた定番スポット。館内レストランやショップもあり、そのまま夕食までつなげやすいです。",
         address: "神奈川県横浜市中区新港1-1",
@@ -379,7 +379,7 @@ const tripDays = [
       },
       {
         name: "赤レンガ倉庫で夕食",
-        timing: "18:30 夕食",
+        timing: "18:00 夕食",
         description: "赤レンガ倉庫館内や周辺の店舗で夕食を取る前提に変更しています。海沿いの雰囲気のまま夜時間を過ごせます。",
         url: officialLinks.akarenga
       }
@@ -397,20 +397,20 @@ const tripDays = [
     date: "2025-03-30",
     title: "八景島 / 帰宅",
     summary:
-      "朝に八景島へ向かい、14時までシーパラダイスを満喫。ホテルで荷物回収後、新横浜から名古屋方面へ戻る最終日です。",
+      "朝に八景島へ向かい、14時までシーパラダイスを満喫。横浜駅のコインロッカーを使って荷物を管理し、新横浜から名古屋方面へ戻る最終日です。",
     stats: [
       { label: "開始", value: "08:00 朝食" },
       { label: "終了", value: "18:37 尾張瀬戸駅" },
       { label: "主な訪問地", value: "2か所" },
-      { label: "移動の要点", value: "八景島往復 + 帰路" }
+      { label: "移動の要点", value: "八景島 + 横浜駅ロッカー + 帰路" }
     ],
     map: {
       enabled: true,
       coverage: "神奈川県内の移動のみ地図化",
-      note: "ホテルから八景島、ホテル、新横浜までの県内移動を表示しています。新横浜以降の帰路は県外区間のため地図対象外です。",
+      note: "ホテルから八景島、横浜駅、新横浜までの県内移動を表示しています。新横浜以降の帰路は県外区間のため地図対象外です。",
       origin: "Citadines Harbour Front Yokohama",
       destination: "Shin-Yokohama Station",
-      waypoints: ["Yokohama Hakkeijima Sea Paradise", "Citadines Harbour Front Yokohama"],
+      waypoints: ["Yokohama Hakkeijima Sea Paradise", "Yokohama Station"],
       travelMode: "transit"
     },
     timeline: [
@@ -430,12 +430,18 @@ const tripDays = [
         title: "八景島ランチ",
         detail: "園内で昼食休憩。午後の観光に向けて、このタイミングで食事を取る想定です。"
       },
-      { time: "14:00", type: "train", image: scheduleImages.train, title: "八景島を出発", detail: "15:00 ホテル着想定。荷物回収へ戻ります。" },
+      {
+        time: "14:00",
+        type: "train",
+        image: scheduleImages.train,
+        title: "八景島を出発して横浜駅へ",
+        detail: "15:00ごろ横浜駅着想定。コインロッカーに荷物を預ける流れです。"
+      },
       {
         time: "15:10",
         type: "train",
         image: scheduleImages.train,
-        title: "ホテルから新横浜へ移動",
+        title: "横浜駅から新横浜へ移動",
         detail: "16:13 新横浜駅着。新幹線前に駅ナカで軽食確保も可能です。"
       },
       {
@@ -458,13 +464,13 @@ const tripDays = [
         officialUrl: officialLinks.seaparadise
       },
       {
-        name: "シタディーンハーバーフロント横浜",
-        area: "日本大通り",
-        stay: "15:00 荷物回収",
-        image: "./assets/spots/citadines-yokohama.jpg",
-        description: "八景島帰りに荷物回収を挟み、そのまま新横浜へ向かう拠点です。",
-        address: "神奈川県横浜市中区日本大通5-2",
-        officialUrl: officialLinks.hotel
+        name: "横浜駅",
+        area: "西区",
+        stay: "15:00 荷物預け",
+        image: "./assets/spots/minatomirai.jpg",
+        description: "八景島の帰りに立ち寄り、コインロッカーへ荷物を預けてから新横浜へ向かう中継地点です。",
+        address: "神奈川県横浜市西区高島2丁目16",
+        officialUrl: ""
       }
     ],
     trains: [
@@ -484,33 +490,33 @@ const tripDays = [
         note: "混雑がなければ10:20到着ペース。開園直後を狙うなら乗換を急ぎすぎない程度に早め行動が安心です。"
       },
       {
-        title: "八景島駅 → 日本大通り駅 / ホテル",
+        title: "八景島駅 → 横浜駅",
         departureTime: "14:00",
         arrivalTime: "15:00",
         fromStation: "八景島駅",
-        toStation: "日本大通り駅",
+        toStation: "横浜駅",
         lines: ["金沢シーサイドライン", "JR根岸線 / 京浜東北線", "みなとみらい線"],
         transferCount: 2,
         steps: [
           "シーサイドラインで新杉田方面へ戻る。",
-          "JR系統を経由して横浜方面へ。",
-          "みなとみらい線に戻って日本大通り駅へ。"
+          "JR系統を経由して横浜駅へ向かう。",
+          "横浜駅到着後、コインロッカーへ荷物を預ける。"
         ],
-        note: "ホテルでは荷物回収に必要な時間を見込み、着後すぐ動けるようにしておくと新横浜移動が楽です。"
+        note: "ロッカーの空き状況次第で少し時間が前後する可能性があります。改札近くのロッカーを優先すると動きやすいです。"
       },
       {
-        title: "日本大通り駅 → 新横浜駅",
+        title: "横浜駅 → 新横浜駅",
         departureTime: "15:10",
         arrivalTime: "16:13",
-        fromStation: "日本大通り駅",
+        fromStation: "横浜駅",
         toStation: "新横浜駅",
-        lines: ["みなとみらい線 / 東急東横線", "JR横浜線"],
+        lines: ["JR横浜線", "市営地下鉄ブルーライン など"],
         transferCount: 1,
         steps: [
-          "日本大通り駅から菊名方面へ移動。",
-          "菊名駅でJR横浜線に乗換、新横浜駅へ。"
+          "横浜駅から新横浜方面へ移動。",
+          "利用路線は当日の動きやすさに合わせてJR横浜線または市営地下鉄を選ぶ。"
         ],
-        note: "荷物が多い場合は駅構内移動を見込み、エレベーター位置も当日確認推奨です。"
+        note: "ロッカーから荷物を出す想定ではないので、身軽に新横浜へ向かえます。時間優先で乗りやすい系統を選ぶ想定です。"
       },
       {
         title: "新横浜駅 → 尾張瀬戸駅",
@@ -538,7 +544,7 @@ const tripDays = [
     ],
     notes: [
       "八景島は園内移動も広いので、アクアミュージアムとプレジャーランドに優先順位を置くと回しやすいです。",
-      "帰路はホテルでの荷物回収がボトルネックになるため、朝のうちにまとめておくと安心です。",
+      "横浜駅のコインロッカーは混雑することがあるため、改札近くで空きがなければ少し広めに探す想定にしておくと安心です。",
       "新横浜駅での買い物時間を取りたい場合は、八景島出発を少し早めるのが安全です。"
     ]
   }
