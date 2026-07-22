@@ -1,916 +1,492 @@
-const officialLinks = {
-  hotel: "https://www.discoverasr.com/ja/citadines/japan/citadines-harbour-front-yokohama",
-  yokohamaStadium: "https://www.yokohama-stadium.co.jp/",
-  yamashitaPark: "https://www.hama-midorinokyokai.or.jp/park/yamashita/",
-  yokohamaChinatown: "https://www.chinatown.or.jp/",
-  tsurugaoka: "https://www.tsurugaoka.or.jp/",
-  kotokuin: "https://www.kotoku-in.jp/",
-  akarenga: "https://www.yokohama-akarenga.jp/",
-  landmark: "https://www.yokohama-landmark.jp/",
-  minatomirai: "https://minatomirai21.com/",
-  seaparadise: "https://www.seaparadise.co.jp/",
-  keikarou: "https://keikarou.com/",
-  sizzler: "https://www.sizzler.jp/",
-  shirasuya: "https://www.shirasuya.com/",
-  matsubaraan: "https://matsubara-an.com/shops/kamakura/"
-};
-
-const scheduleImages = {
-  train: "./assets/spots/train-card.svg",
-  walk: "./assets/spots/walk-card.svg",
-  meal: "./assets/spots/meal-card.svg",
-  hotel: "./assets/spots/hotel-card.svg",
-  event: "./assets/spots/event-card.svg",
-  yokohamaStadium: "./assets/spots/yokohama-stadium.svg",
-  yamashitaPark: "./assets/spots/yamashita-park.svg",
-  yokohamaChinatown: "./assets/spots/yokohama-chinatown.svg",
-  tsurugaoka: "./assets/spots/tsurugaoka-hachimangu.svg",
-  kamakuraDaibutsu: "./assets/spots/kamakura-daibutsu.svg",
-  komachi: "./assets/spots/komachi-street.svg",
-  akarenga: "./assets/spots/akarenga.svg",
-  minatomirai: "./assets/spots/minatomirai.svg",
-  landmark: "./assets/spots/landmark-tower.svg",
-  seaparadise: "./assets/spots/seaparadise.svg"
+const appLinks = {
+  yahooTransit: {
+    label: "Yahoo乗換案内アプリを開く",
+    iosUrl: "https://apps.apple.com/jp/app/yahoo-%E4%B9%97%E6%8F%9B%E6%A1%88%E5%86%85/id291676451",
+    androidUrl: "https://play.google.com/store/apps/details?id=jp.co.yahoo.android.apps.transit",
+    fallbackUrl: "https://transit.yahoo.co.jp/"
+  },
+  ex: {
+    label: "EXアプリを開く",
+    iosUrl: "https://apps.apple.com/jp/app/ex%E3%82%A2%E3%83%97%E3%83%AA-jr%E6%9D%B1%E6%B5%B7%E5%85%AC%E5%BC%8F/id1153448703",
+    androidUrl: "https://play.google.com/store/apps/details?id=jp.co.jr_central.exreserve",
+    fallbackUrl: "https://jr-central.co.jp/ex/lp/app/"
+  }
 };
 
 const tripDays = [
   {
-    id: "day1",
-    label: "1日目",
-    shortDate: "3/28 Fri",
-    date: "2025-03-28",
-    title: "横浜移動 / プロ野球観戦 / 中華街",
-    summary:
-      "名古屋から新横浜経由でホテルへ。昼から横浜スタジアムで観戦し、夕方は山下公園から中華街で夕食へ流れる1日です。",
-    stats: [
-      { label: "開始", value: "09:39 尾張瀬戸駅" },
-      { label: "終了", value: "19:45 ホテル" },
-      { label: "主な訪問地", value: "4か所" },
-      { label: "移動の要点", value: "新幹線 + 市内徒歩" }
+    date: "8/4",
+    day: "DAY 01",
+    title: "移動と再会の岡山",
+    description: "尾張瀬戸から新幹線で岡山へ。岡山の実家で家族と過ごし、蔵 インに宿泊。",
+    summary: [
+      ["出発", "尾張瀬戸駅"],
+      ["到着", "蔵 イン"],
+      ["移動", "電車・新幹線"]
     ],
-    map: {
-      enabled: true,
-      coverage: "神奈川県内の移動のみ地図化",
-      note: "県外区間の名古屋から新横浜までは地図対象外です。神奈川県内はホテル、横浜スタジアム、山下公園、中華街をルート表示しています。",
-      embedUrl:
-        "https://www.google.com/maps?q=35.4439,139.6457&z=14&hl=ja&output=embed",
-      origin: "神奈川県横浜市中区日本大通5-2 シタディーンハーバーフロント横浜",
-      destination: "神奈川県横浜市中区日本大通5-2 シタディーンハーバーフロント横浜",
-      waypoints: [
-        "神奈川県横浜市中区横浜公園 横浜スタジアム",
-        "神奈川県横浜市中区山下町279 山下公園",
-        "神奈川県横浜市中区山下町138 京華樓 中華街大通り店"
-      ],
-      travelMode: "transit"
-    },
-    timeline: [
-      { time: "09:39", type: "train", image: scheduleImages.train, title: "尾張瀬戸駅を出発", detail: "名鉄瀬戸線で栄町駅へ。" },
+    entries: [
       {
-        time: "10:59",
-        type: "train",
-        image: scheduleImages.train,
-        title: "名古屋駅から東海道新幹線 のぞみ350号",
-        detail: "12:16 新横浜駅着。県外移動区間です。"
+        time: "9:30–10:30",
+        type: "TRAIN",
+        appLink: appLinks.yahooTransit,
+        title: "尾張瀬戸駅 → 名古屋駅",
+        detail: "尾張瀬戸駅から名古屋駅へ",
+        image: "./写真/owari_seto.jpg",
+        alt: "尾張瀬戸駅周辺",
+        map: "尾張瀬戸駅"
       },
       {
-        time: "13:00",
-        type: "hotel",
-        image: scheduleImages.hotel,
-        title: "シタディーンハーバーフロント横浜に到着",
-        detail: "荷物を預けて身軽になってから球場へ移動。"
+        time: "12:00–13:00",
+        type: "SHINKANSEN",
+        appLink: appLinks.ex,
+        title: "名古屋 → 岡山 → 新倉敷",
+        detail: "名古屋(11:10) → のぞみ21号 → 岡山(12:47)\n岡山(12:50) → こだま949号 → 新倉敷(12:59)\n新幹線",
+        image: "./写真/nagoya_station.jpg",
+        alt: "名古屋駅",
+        map: "新倉敷駅"
       },
       {
-        time: "13:20",
-        type: "walk",
-        image: scheduleImages.walk,
-        title: "徒歩で横浜スタジアムへ",
-        detail: "ホテルから球場までは徒歩圏。"
+        time: "13:30–20:00",
+        type: "FAMILY",
+        title: "岡山の実家",
+        detail: "おばあちゃんとお姉ちゃんと会う。晩御飯",
+        image: "./写真/yakage_jikka.png",
+        alt: "岡山の町並み",
+        map: "岡山県"
       },
       {
-        time: "13:30",
-        type: "meal",
-        image: scheduleImages.meal,
-        title: "球場グルメを購入",
-        detail: "観戦前の昼食確保。13:30から14:00の想定です。"
-      },
-      {
-        time: "14:00",
-        type: "event",
-        image: scheduleImages.yokohamaStadium,
-        title: "プロ野球観戦",
-        detail: "17:00ごろまで観戦。試合終了後はそのまま山下公園方面へ。"
-      },
-      {
-        time: "17:30",
-        type: "spot",
-        image: scheduleImages.yamashitaPark,
-        title: "山下公園",
-        detail: "海沿いで休憩しながら夕方の横浜を楽しむ時間。"
-      },
-      {
-        time: "18:30",
-        type: "meal",
-        image: scheduleImages.yokohamaChinatown,
-        title: "京華樓で夕食",
-        detail: "中華街で四川料理。食後はホテルへ戻るだけの動線です。"
-      },
-      {
-        time: "19:45",
-        type: "hotel",
-        image: scheduleImages.hotel,
-        title: "ホテルに戻る",
-        detail: "翌日の鎌倉観光に備えて早めに休む想定。"
+        time: "20:00–",
+        type: "STAY",
+        title: "蔵 イン",
+        detail: "宿泊",
+        image: "./写真/kura_inn.jpg",
+        alt: "蔵 イン",
+        map: "蔵 イン 岡山",
+        officialLinks: [{ label: "蔵INN 公式", url: "https://kurainn.com/" }]
       }
-    ],
-    spots: [
-      {
-        name: "シタディーンハーバーフロント横浜",
-        area: "日本大通り",
-        stay: "宿泊拠点",
-        image: "./assets/spots/citadines-yokohama.jpg",
-        description: "日本大通り駅至近で、中華街や山下公園、みなとみらい方面にも動きやすいホテルです。",
-        address: "神奈川県横浜市中区日本大通5-2",
-        officialUrl: officialLinks.hotel
-      },
-      {
-        name: "横浜スタジアム",
-        area: "関内",
-        stay: "13:30 - 17:00",
-        image: "./assets/spots/yokohama-stadium.jpg",
-        description: "プロ野球観戦の中心スポット。球場グルメも含めて横浜らしい熱気を楽しめます。",
-        address: "神奈川県横浜市中区横浜公園",
-        officialUrl: officialLinks.yokohamaStadium
-      },
-      {
-        name: "山下公園",
-        area: "山下町",
-        stay: "17:30 - 18:20",
-        image: "./assets/spots/yamashita-park.jpg",
-        description: "試合後のクールダウンにちょうどよい海沿いの定番スポット。夕景もきれいです。",
-        address: "神奈川県横浜市中区山下町279",
-        officialUrl: officialLinks.yamashitaPark
-      },
-      {
-        name: "横浜中華街",
-        area: "山下町",
-        stay: "18:30 - 19:30",
-        image: "./assets/spots/yokohama-chinatown.jpg",
-        description: "夕食の京華樓があるエリア。食後の散策にも向いています。",
-        address: "神奈川県横浜市中区山下町",
-        officialUrl: officialLinks.yokohamaChinatown
-      }
-    ],
-    trains: [
-      {
-        title: "尾張瀬戸駅 → 栄町駅",
-        departureTime: "09:39",
-        arrivalTime: "10:08",
-        fromStation: "尾張瀬戸駅",
-        toStation: "栄町駅",
-        lines: ["名鉄瀬戸線"],
-        transferCount: 0,
-        steps: ["名鉄瀬戸線でそのまま栄町駅へ。"],
-        note: "名古屋市内での最初の移動。余裕があれば次の地下鉄乗換前にトイレ確認。"
-      },
-      {
-        title: "栄駅 → 名古屋駅",
-        departureTime: "10:14",
-        arrivalTime: "10:19",
-        fromStation: "栄駅",
-        toStation: "名古屋駅",
-        lines: ["名古屋市営東山線"],
-        transferCount: 0,
-        steps: ["栄町駅から栄駅へ徒歩連絡後、東山線で名古屋駅へ。"],
-        note: "新幹線改札へ向かう時間を確保したい区間です。"
-      },
-      {
-        title: "名古屋駅 → 新横浜駅",
-        departureTime: "10:59",
-        arrivalTime: "12:16",
-        fromStation: "名古屋駅",
-        toStation: "新横浜駅",
-        lines: ["東海道新幹線 のぞみ350号"],
-        transferCount: 0,
-        steps: ["のぞみ350号で新横浜駅へ直行。"],
-        note: "県外区間のため地図には載せず、移動詳細のみ表示しています。"
-      },
-      {
-        title: "新横浜駅 → 日本大通り駅",
-        departureTime: "12:29",
-        arrivalTime: "12:52頃",
-        fromStation: "新横浜駅",
-        toStation: "日本大通り駅",
-        lines: ["JR横浜線快速", "東急東横線急行 / みなとみらい線直通"],
-        transferCount: 1,
-        steps: [
-          "12:29 新横浜駅からJR横浜線快速で菊名へ。",
-          "12:39 菊名で東急東横線急行に乗換、みなとみらい線直通で日本大通り駅へ。"
-        ],
-        note: "駅到着後はホテルまで徒歩数分。荷物預けを含めて13:00着想定です。"
-      }
-    ],
-    meals: [
-      {
-        name: "京華樓",
-        timing: "18:30 夕食",
-        description: "中華街の四川料理。山下公園から流れで入りやすい夜ごはん候補です。",
-        url: officialLinks.keikarou
-      }
-    ],
-    notes: [
-      "試合時間は延長で後ろにずれる可能性があります。夕食開始時刻は少し余裕を見てください。",
-      "球場内で昼食を済ませる前提なので、ホテル到着後は早めに移動すると動きやすいです。",
-      "中華街周辺は夜も人が多いので、ホテルへ戻る前に集合場所を決めておくと安心です。"
     ]
   },
   {
-    id: "day2",
-    label: "2日目",
-    shortDate: "3/29 Sat",
-    date: "2025-03-29",
-    title: "鎌倉観光 / みなとみらい",
-    summary:
-      "朝に鎌倉へ移動し、鶴岡八幡宮と鎌倉大仏を回ってから、夕方にみなとみらいへ戻る流れです。歩行量が多いので休憩タイミングの確保がポイントです。",
-    stats: [
-      { label: "開始", value: "07:45 朝食" },
-      { label: "終了", value: "19:30 ホテル" },
-      { label: "主な訪問地", value: "5か所" },
-      { label: "移動の要点", value: "鎌倉往復 + 市内夜景" }
+    date: "8/5",
+    day: "DAY 02",
+    title: "うどんと美術館、淡路島",
+    description: "朝食後に岡山の実家へ。新倉敷からレンタカーで坂出、大塚国際美術館、淡路島へ移動。",
+    summary: [
+      ["出発", "岡山の実家"],
+      ["到着", "グランドメルキュール淡路島"],
+      ["移動", "レンタカー"]
     ],
-    map: {
-      enabled: true,
-      coverage: "神奈川県内ルートを地図化",
-      note: "ホテルから鎌倉、みなとみらい、ホテルまでの主要ルートです。詳細な徒歩導線は現地でGoogle Mapsを開いて確認してください。",
-      embedUrl:
-        "https://www.google.com/maps?q=35.3975,139.6007&z=10&hl=ja&output=embed",
-      origin: "神奈川県横浜市中区日本大通5-2 シタディーンハーバーフロント横浜",
-      destination: "神奈川県横浜市中区日本大通5-2 シタディーンハーバーフロント横浜",
-      waypoints: [
-        "神奈川県鎌倉市雪ノ下2-1-31 鶴岡八幡宮",
-        "神奈川県鎌倉市長谷4-2-28 高徳院 鎌倉大仏",
-        "神奈川県鎌倉市小町 小町通り",
-        "神奈川県横浜市中区新港1-1 横浜赤レンガ倉庫",
-        "神奈川県横浜市西区みなとみらい2-2-1 横浜ランドマークタワー"
-      ],
-      travelMode: "transit"
-    },
-    timeline: [
+    entries: [
       {
-        time: "07:45",
-        type: "meal",
-        image: scheduleImages.meal,
-        title: "ホテル朝食",
-        detail: "歩行量の多い日なので、朝食はしっかり取る前提です。"
+        time: "7:30–8:00",
+        type: "BREAKFAST",
+        title: "蔵 インで朝食",
+        detail: "朝食",
+        image: "./写真/kura_inn_break_fast.jpg",
+        alt: "蔵 インの朝食",
+        officialLinks: [{ label: "蔵INN 公式", url: "https://kurainn.com/" }]
       },
       {
-        time: "09:00",
-        type: "train",
-        image: scheduleImages.train,
-        title: "ホテルを出発して鎌倉へ",
-        detail: "日本大通り駅からみなとみらい線・JR系統を乗り継ぎ、09:34 鎌倉駅着想定。"
-      },
-      { time: "09:45", type: "spot", image: scheduleImages.tsurugaoka, title: "鶴岡八幡宮", detail: "朝の参拝で混雑前に回る構成です。" },
-      { time: "10:45", type: "spot", image: scheduleImages.tsurugaoka, title: "大倉幕府跡", detail: "歴史スポットとして短時間で立ち寄る前提。" },
-      { time: "12:00", type: "spot", image: scheduleImages.kamakuraDaibutsu, title: "鎌倉大仏", detail: "移動後に高徳院で大仏見学。" },
-      { time: "13:00", type: "meal", image: scheduleImages.meal, title: "鎌倉ランチ", detail: "しらすや、松原庵を候補に。しらす丼中心で考える日。" },
-      { time: "14:00", type: "spot", image: scheduleImages.komachi, title: "小町通り", detail: "食べ歩きや軽い買い物の時間。" },
-      { time: "15:30", type: "train", image: scheduleImages.train, title: "鎌倉を出発してみなとみらいへ", detail: "16:30 みなとみらい着想定。" },
-      { time: "16:30", type: "spot", image: scheduleImages.minatomirai, title: "みなとみらい", detail: "みなとみらい到着後に海沿いと周辺施設をゆったり散策する流れです。" },
-      { time: "17:30", type: "spot", image: scheduleImages.akarenga, title: "横浜赤レンガ倉庫", detail: "夕方から夜にかけて港エリアを散策し、そのまま夕食へ。" },
-      { time: "18:00", type: "meal", image: scheduleImages.akarenga, title: "赤レンガ倉庫で夕食", detail: "館内や周辺のレストランで夕食を取る流れに変更。" },
-      { time: "19:30", type: "hotel", image: scheduleImages.hotel, title: "ホテルへ戻る", detail: "翌日の八景島に備えて帰着。" }
-    ],
-    spots: [
-      {
-        name: "鶴岡八幡宮",
-        area: "鎌倉",
-        stay: "09:45 - 10:35",
-        image: "./assets/spots/tsurugaoka-hachimangu.jpg",
-        description: "鎌倉観光の起点になる代表的な神社。朝の時間帯に入ると動きやすいです。",
-        address: "神奈川県鎌倉市雪ノ下2-1-31",
-        officialUrl: officialLinks.tsurugaoka
+        time: "9:00–10:30",
+        type: "FAMILY",
+        title: "岡山の実家",
+        detail: "",
+        image: "./写真/yakage_jikka.png",
+        alt: "岡山の町並み",
+        map: "岡山県"
       },
       {
-        name: "鎌倉大仏",
-        area: "長谷",
-        stay: "12:00 - 12:45",
-        image: "./assets/spots/kamakura-daibutsu.jpg",
-        description: "高徳院にある定番スポット。屋外見学なので天候の確認が必要です。",
-        address: "神奈川県鎌倉市長谷4-2-28",
-        officialUrl: officialLinks.kotokuin
+        time: "11:30–",
+        type: "CAR",
+        title: "トヨタレンタカー 新倉敷駅店",
+        detail: "レンタカーを借りる",
+        image: "./写真/toyota_rentacar.jpg",
+        alt: "トヨタレンタカー",
+        map: "トヨタレンタカー 新倉敷駅店",
+        officialLinks: [{ label: "トヨタ公式", url: "https://rent.toyota.co.jp/shop/?region=H&station=0045" }]
       },
       {
-        name: "小町通り",
-        area: "鎌倉駅周辺",
-        stay: "14:00 - 15:15",
-        image: "./assets/spots/komachi-street.jpg",
-        description: "食べ歩きや軽い買い物向き。帰路に入る前の散策時間として相性が良いです。",
-        address: "神奈川県鎌倉市小町",
-        officialUrl: ""
-      },
-      {
-        name: "横浜赤レンガ倉庫",
-        area: "みなとみらい",
-        stay: "17:30 - 19:00",
-        image: "./assets/spots/akarenga.jpg",
-        description: "夕方の海沿い散策に向いた定番スポット。館内レストランやショップもあり、そのまま夕食までつなげやすいです。",
-        address: "神奈川県横浜市中区新港1-1",
-        officialUrl: officialLinks.akarenga
-      },
-      {
-        name: "みなとみらい",
-        area: "みなとみらい",
-        stay: "16:30 - 17:40",
-        image: "./assets/spots/minatomirai.jpg",
-        description: "海沿いの景色や商業施設、夜景をまとめて楽しめる横浜の定番エリアです。赤レンガ倉庫方面への移動もつなぎやすいです。",
-        address: "神奈川県横浜市西区みなとみらい",
-        officialUrl: officialLinks.minatomirai
-      }
-    ],
-    trains: [
-      {
-        title: "日本大通り駅 → 鎌倉駅",
-        departureTime: "09:00",
-        arrivalTime: "09:34",
-        fromStation: "日本大通り駅",
-        toStation: "鎌倉駅",
-        lines: ["みなとみらい線 / 東急東横線", "JR横須賀線"],
-        transferCount: 1,
-        steps: [
-          "日本大通り駅からみなとみらい線で横浜方面へ。",
-          "横浜駅でJR横須賀線へ乗換、鎌倉駅へ。"
+        time: "12:30–",
+        type: "LUNCH",
+        title: "昼食 讃岐うどん",
+        detail: "",
+        image: "./写真/sanuki_udon.jpg",
+        alt: "讃岐うどん",
+        map: "高松 讃岐うどん",
+        mapPlaces: [
+          "香川県高松市勅使町302-7",
+          "香川県坂出市川津町3537-1",
+          "香川県高松市檀紙町851-1",
+          "香川県坂出市川津町3355-2",
+          "香川県高松市円座町340"
         ],
-        note: "乗換は横浜駅想定です。実際の列車時刻は当日アプリや駅案内で再確認してください。"
+        restaurantList: [
+          {
+            name: "古奈や",
+            area: "高松・鬼無",
+            address: "香川県高松市勅使町302-7",
+            tabelogUrl: "https://tabelog.com/kagawa/A3701/A370101/37001256/"
+          },
+          {
+            name: "手打ちうどん かまや",
+            area: "坂出",
+            address: "香川県坂出市川津町3537-1",
+            tabelogUrl: "https://tabelog.com/kagawa/A3702/A370201/37012661/"
+          },
+          {
+            name: "てら屋うどん",
+            area: "高松・円座",
+            address: "香川県高松市檀紙町851-1",
+            tabelogUrl: "https://tabelog.com/kagawa/A3701/A370101/37001079/"
+          },
+          {
+            name: "めんや七福 別邸",
+            area: "坂出",
+            address: "香川県坂出市川津町3355-2",
+            tabelogUrl: "https://tabelog.com/kagawa/A3702/A370201/37008600/"
+          },
+          {
+            name: "宮武うどん",
+            area: "高松・円座",
+            address: "香川県高松市円座町340",
+            tabelogUrl: "https://tabelog.com/kagawa/A3701/A370101/37005339/"
+          }
+        ]
       },
       {
-        title: "鎌倉駅 → みなとみらい",
-        departureTime: "15:30",
-        arrivalTime: "16:30",
-        fromStation: "鎌倉駅",
-        toStation: "みなとみらい駅周辺",
-        lines: ["JR横須賀線", "みなとみらい線"],
-        transferCount: 1,
-        steps: [
-          "鎌倉駅から横浜駅へ戻る。",
-          "横浜駅でみなとみらい線へ乗換し、赤レンガエリアへ。"
-        ],
-        note: "みなとみらい到着後は先にエリア散策を行い、その後赤レンガ倉庫へ流れる構成です。"
+        time: "14:00–15:30",
+        type: "MUSEUM",
+        title: "大塚国際美術館",
+        detail: "",
+        image: "./写真/ostuka_museum.png",
+        alt: "大塚国際美術館",
+        map: "大塚国際美術館",
+        officialLinks: [{ label: "美術館公式", url: "https://o-museum.or.jp/" }]
       },
       {
-        title: "みなとみらい → 日本大通り駅 / ホテル",
-        departureTime: "19:00頃",
-        arrivalTime: "19:30頃",
-        fromStation: "みなとみらい駅周辺",
-        toStation: "日本大通り駅",
-        lines: ["みなとみらい線"],
-        transferCount: 0,
-        steps: ["ランドマーク周辺からみなとみらい線で日本大通り駅へ戻る。"],
-        note: "赤レンガ倉庫で夕食を取った後の戻りになるため、帰りは徒歩またはみなとみらい線利用のどちらでも調整しやすい区間です。"
+        time: "15:30–16:30",
+        type: "DRIVE",
+        title: "淡路島へ",
+        detail: "うずの丘 大鳴門橋記念館、道の駅うずしお",
+        image: "./写真/uzushio.jpg",
+        alt: "うずの丘 大鳴門橋記念館と鳴門の海",
+        map: "うずの丘 大鳴門橋記念館",
+        officialLinks: [
+          { label: "うずの丘公式", url: "https://kinen.uzunokuni.com/" },
+          { label: "道の駅公式", url: "https://eki.uzunokuni.com/" }
+        ]
+      },
+      {
+        time: "17:30–",
+        type: "HOTEL",
+        title: "グランドメルキュール淡路島",
+        detail: "夕食＆宿泊",
+        image: "./写真/grand-mercure-awajiisland.jpg",
+        alt: "グランドメルキュール淡路島",
+        map: "グランドメルキュール淡路島",
+        officialLinks: [{ label: "ホテル公式", url: "https://grand-mercure-awajiisland-resortandspa.jp/" }]
       }
-    ],
-    meals: [
-      {
-        name: "しらすや",
-        timing: "13:00 ランチ候補",
-        description: "しらす丼中心で考えるなら第一候補。混雑次第で待ち時間が出る想定です。",
-        url: officialLinks.shirasuya
-      },
-      {
-        name: "松原庵",
-        timing: "13:00 ランチ候補",
-        description: "落ち着いた雰囲気で昼食を取りたい場合の候補。",
-        url: officialLinks.matsubaraan
-      },
-      {
-        name: "赤レンガ倉庫で夕食",
-        timing: "18:00 夕食",
-        description: "赤レンガ倉庫館内や周辺の店舗で夕食を取る前提に変更しています。海沿いの雰囲気のまま夜時間を過ごせます。",
-        url: officialLinks.akarenga
-      }
-    ],
-    notes: [
-      "鎌倉は徒歩移動が増えるので、昼までに一度カフェ休憩を入れられると疲れにくいです。",
-      "小町通りの滞在時間はお土産量で伸びやすいので、15:30出発の余裕を意識してください。",
-      "雨天時は赤レンガ倉庫やランドマークプラザの屋内比率を上げると回しやすいです。"
     ]
   },
   {
-    id: "day3",
-    label: "3日目",
-    shortDate: "3/30 Sun",
-    date: "2025-03-30",
-    title: "八景島 / 帰宅",
-    summary:
-      "朝に八景島へ向かい、14時までシーパラダイスを満喫。横浜駅のコインロッカーを使って荷物を管理し、新横浜から名古屋方面へ戻る最終日です。",
-    stats: [
-      { label: "開始", value: "08:00 朝食" },
-      { label: "終了", value: "18:37 尾張瀬戸駅" },
-      { label: "主な訪問地", value: "2か所" },
-      { label: "移動の要点", value: "八景島 + 横浜駅ロッカー + 帰路" }
+    date: "8/6",
+    day: "DAY 03",
+    title: "淡路島から神戸へ",
+    description: "朝食後に淡路夢舞台へ。明石海峡大橋を渡って神戸を観光し、新神戸から名古屋へ。",
+    summary: [
+      ["出発", "グランドメルキュール淡路島"],
+      ["到着", "尾張瀬戸駅"],
+      ["移動", "車・新幹線"]
     ],
-    map: {
-      enabled: true,
-      coverage: "神奈川県内の移動のみ地図化",
-      note: "ホテルから八景島、横浜駅、新横浜までの県内移動を表示しています。新横浜以降の帰路は県外区間のため地図対象外です。",
-      origin: "Citadines Harbour Front Yokohama",
-      destination: "Shin-Yokohama Station",
-      waypoints: ["Yokohama Hakkeijima Sea Paradise", "Yokohama Station"],
-      travelMode: "transit"
-    },
-    timeline: [
-      { time: "08:00", type: "meal", image: scheduleImages.meal, title: "朝食", detail: "荷物整理も兼ねて早めに準備。" },
-      { time: "09:30", type: "train", image: scheduleImages.train, title: "ホテルを出発して八景島へ", detail: "10:20 横浜・八景島シーパラダイス着想定。" },
+    entries: [
       {
-        time: "10:30",
-        type: "spot",
-        image: scheduleImages.seaparadise,
-        title: "八景島観光",
-        detail: "アクアミュージアムとプレジャーランドを14:00まで楽しむ構成です。"
+        time: "7:30–8:00",
+        type: "BREAKFAST",
+        title: "朝食",
+        detail: "バイキング",
+        image: "./写真/grand-mercure-awajiisland.jpg",
+        alt: "グランドメルキュール淡路島",
+        officialLinks: [{ label: "ホテル公式", url: "https://grand-mercure-awajiisland-resortandspa.jp/" }]
       },
       {
-        time: "12:00",
-        type: "meal",
-        image: scheduleImages.meal,
-        title: "八景島ランチ",
-        detail: "園内で昼食休憩。午後の観光に向けて、このタイミングで食事を取る想定です。"
+        time: "9:30–11:00",
+        type: "SPOT",
+        title: "淡路夢舞台",
+        detail: "",
+        image: "./写真/yumebutai.jpg",
+        alt: "淡路夢舞台",
+        map: "淡路夢舞台",
+        officialLinks: [{ label: "淡路夢舞台公式", url: "https://www.yumebutai.co.jp/" }]
       },
       {
-        time: "14:00",
-        type: "train",
-        image: scheduleImages.train,
-        title: "八景島を出発して横浜駅へ",
-        detail: "15:00ごろ横浜駅着想定。コインロッカーに荷物を預ける流れです。"
+        time: "11:00–12:00",
+        type: "DRIVE",
+        title: "明石海峡大橋を渡り神戸",
+        detail: "",
+        image: "./写真/akashi_hashi.jpg",
+        alt: "明石海峡大橋",
+        map: "明石海峡大橋",
+        officialLinks: [{ label: "JB本四高速公式", url: "https://www.jb-honshi.co.jp/corp_index/technology/introduction/introduction_akashi.html" }]
       },
       {
-        time: "15:10",
-        type: "train",
-        image: scheduleImages.train,
-        title: "横浜駅から新横浜へ移動",
-        detail: "16:13 新横浜駅着。新幹線前に駅ナカで軽食確保も可能です。"
+        time: "12:00–14:30",
+        type: "KOBE",
+        title: "昼食と神戸観光",
+        detail: "",
+        image: "./写真/kobe.jpg",
+        alt: "神戸の景色",
+        map: "神戸",
+        officialLinks: [{ label: "神戸観光公式", url: "https://www.feel-kobe.jp/" }]
       },
       {
-        time: "16:13",
-        type: "train",
-        image: scheduleImages.train,
-        title: "新横浜駅から東海道新幹線 のぞみ447号",
-        detail: "17:33 名古屋駅着。ここからJR中央線と名鉄瀬戸線に乗り継ぎます。"
-      },
-      { time: "18:37", type: "train", image: scheduleImages.train, title: "尾張瀬戸駅に到着", detail: "3日間の旅程完了。" }
-    ],
-    spots: [
-      {
-        name: "横浜・八景島シーパラダイス",
-        area: "金沢区",
-        stay: "10:30 - 14:00",
-        image: "./assets/spots/seaparadise.jpg",
-        description: "最終日のメインスポット。アクアミュージアムとプレジャーランドを絞って回ると時間内で収まりやすいです。",
-        address: "神奈川県横浜市金沢区八景島",
-        officialUrl: officialLinks.seaparadise
+        time: "15:30–",
+        type: "SOUVENIR",
+        officialLinks: [{ label: "お土産を見る", url: "https://www.dailyservice.co.jp/souvenir/shin-kobe" }],
+        title: "新神戸駅",
+        detail: "お土産を買う",
+        image: "./写真/shinkobe.jpg",
+        alt: "新神戸駅",
+        map: "新神戸駅"
       },
       {
-        name: "横浜駅",
-        area: "西区",
-        stay: "15:00 荷物預け",
-        image: "./assets/spots/minatomirai.jpg",
-        description: "八景島の帰りに立ち寄り、コインロッカーへ荷物を預けてから新横浜へ向かう中継地点です。",
-        address: "神奈川県横浜市西区高島2丁目16",
-        officialUrl: ""
+        time: "16:00–17:30",
+        type: "SHINKANSEN",
+        appLink: appLinks.ex,
+        title: "新神戸 → 名古屋",
+        detail: "新神戸(16:01) → のぞみ168号 → 名古屋(17:04)\n新幹線",
+        image: "./写真/nagoya_station.jpg",
+        alt: "新神戸駅",
+        map: "新神戸駅"
+      },
+      {
+        time: "17:30–18:30",
+        type: "TRAIN",
+        appLink: appLinks.yahooTransit,
+        title: "名古屋駅 → 尾張瀬戸駅",
+        detail: "",
+        image: "./写真/owari_seto.jpg",
+        alt: "名古屋駅",
+        map: "尾張瀬戸駅"
       }
-    ],
-    trains: [
-      {
-        title: "日本大通り駅 → 八景島駅",
-        departureTime: "09:30",
-        arrivalTime: "10:20",
-        fromStation: "日本大通り駅",
-        toStation: "八景島駅",
-        lines: ["みなとみらい線", "JR根岸線 / 京浜東北線", "金沢シーサイドライン"],
-        transferCount: 2,
-        steps: [
-          "日本大通り駅から横浜方面へ移動。",
-          "JR根岸線系統で新杉田方面へ。",
-          "新杉田付近でシーサイドラインに乗換し、八景島駅へ。"
-        ],
-        note: "混雑がなければ10:20到着ペース。開園直後を狙うなら乗換を急ぎすぎない程度に早め行動が安心です。"
-      },
-      {
-        title: "八景島駅 → 横浜駅",
-        departureTime: "14:00",
-        arrivalTime: "15:00",
-        fromStation: "八景島駅",
-        toStation: "横浜駅",
-        lines: ["金沢シーサイドライン", "JR根岸線 / 京浜東北線", "みなとみらい線"],
-        transferCount: 2,
-        steps: [
-          "シーサイドラインで新杉田方面へ戻る。",
-          "JR系統を経由して横浜駅へ向かう。",
-          "横浜駅到着後、コインロッカーへ荷物を預ける。"
-        ],
-        note: "ロッカーの空き状況次第で少し時間が前後する可能性があります。改札近くのロッカーを優先すると動きやすいです。"
-      },
-      {
-        title: "横浜駅 → 新横浜駅",
-        departureTime: "15:10",
-        arrivalTime: "16:13",
-        fromStation: "横浜駅",
-        toStation: "新横浜駅",
-        lines: ["JR横浜線", "市営地下鉄ブルーライン など"],
-        transferCount: 1,
-        steps: [
-          "横浜駅から新横浜方面へ移動。",
-          "利用路線は当日の動きやすさに合わせてJR横浜線または市営地下鉄を選ぶ。"
-        ],
-        note: "ロッカーから荷物を出す想定ではないので、身軽に新横浜へ向かえます。時間優先で乗りやすい系統を選ぶ想定です。"
-      },
-      {
-        title: "新横浜駅 → 尾張瀬戸駅",
-        departureTime: "16:13",
-        arrivalTime: "18:37",
-        fromStation: "新横浜駅",
-        toStation: "尾張瀬戸駅",
-        lines: ["東海道新幹線 のぞみ447号", "JR中央線", "名鉄瀬戸線"],
-        transferCount: 2,
-        steps: [
-          "16:13 新横浜駅から東海道新幹線 のぞみ447号で名古屋駅へ。",
-          "17:42 JR中央線で大曽根へ。",
-          "18:08 名鉄瀬戸線で尾張瀬戸駅へ。"
-        ],
-        note: "この区間は県外移動を含むため、地図表示ではなく時刻と乗換情報中心で確認する構成です。"
-      }
-    ],
-    meals: [
-      {
-        name: "八景島ランチ",
-        timing: "12:00 昼食",
-        description: "シーパラダイス園内で昼食を取る想定です。混雑しやすい時間帯なので、少し早めに動くと回しやすくなります。",
-        url: officialLinks.seaparadise
-      }
-    ],
-    notes: [
-      "八景島は園内移動も広いので、アクアミュージアムとプレジャーランドに優先順位を置くと回しやすいです。",
-      "横浜駅のコインロッカーは混雑することがあるため、改札近くで空きがなければ少し広めに探す想定にしておくと安心です。",
-      "新横浜駅での買い物時間を取りたい場合は、八景島出発を少し早めるのが安全です。"
     ]
   }
 ];
 
-const tripWideNotes = [
-  "曜日表記に合わせて、日付は 2025年3月28日から3月30日として実装しています。",
-  "Googleマップ埋め込みは神奈川県内の移動だけを対象にし、県外区間は電車詳細で補っています。",
-  "列車の詳細時刻はダイヤ改正や運行状況の影響を受けるため、旅行当日は駅案内やGoogle Mapsで最終確認してください。"
-];
+const iconPaths = {
+  share: '<svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.3"></circle><circle cx="6" cy="12" r="2.3"></circle><circle cx="18" cy="19" r="2.3"></circle><path d="m8.1 11 7.8-4.6M8.1 13l7.8 4.6"></path></svg>',
+  arrowRight: '<svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>',
+  calendar: '<svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="1.5"></rect><path d="M7 3.5v4M17 3.5v4M3.5 9h17"></path></svg>',
+  external: '<svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"></path><path d="M18 13v5.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H11"></path></svg>',
+  pin: '<svg viewBox="0 0 24 24"><path d="M20 10.5c0 5.2-8 10-8 10s-8-4.8-8-10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10.5" r="2.4"></circle></svg>',
+  home: '<svg viewBox="0 0 24 24"><path d="m3.5 10.5 8.5-7 8.5 7"></path><path d="M5.5 9.5v10h13v-10M9.5 19.5v-6h5v6"></path></svg>',
+  note: '<svg viewBox="0 0 24 24"><path d="M5 3.5h14v17H5z"></path><path d="M8.5 8h7M8.5 12h7M8.5 16h4"></path></svg>',
+  check: '<svg viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"></path></svg>'
+};
 
-const app = document.getElementById("app");
-const tabs = document.getElementById("day-tabs");
-let activeDayId = tripDays[0].id;
-
-function buildGoogleEmbedUrl(map) {
-  const params = new URLSearchParams({
-    output: "embed",
-    f: "d",
-    hl: "ja",
-    saddr: map.origin,
-    daddr: map.destination,
-    dirflg: "r"
-  });
-
-  if (map.waypoints?.length) {
-    params.set("waypoints", map.waypoints.join("|"));
-  }
-
-  return `https://www.google.com/maps?${params.toString()}`;
+function iconKey(value) {
+  return value.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
 }
 
-function buildGoogleMapsLink(map) {
-  const params = new URLSearchParams({
-    api: "1",
-    origin: map.origin,
-    destination: map.destination,
-    travelmode: map.travelMode || "transit"
-  });
+document.querySelectorAll("[data-icon]").forEach((node) => {
+  const key = iconKey(node.dataset.icon);
+  if (iconPaths[key]) node.innerHTML = iconPaths[key];
+});
 
-  if (map.waypoints?.length) {
-    params.set("waypoints", map.waypoints.join("|"));
-  }
+const dayPanel = document.querySelector("#dayPanel");
+const dayTabs = [...document.querySelectorAll(".day-tab")];
 
-  return `https://www.google.com/maps/dir/?${params.toString()}`;
+function mapsUrl(query) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
-function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
+function mapsMultiLocationUrl(places) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(places.join("|"))}`;
 }
 
-function createPlaceholderDataUri(title) {
-  const safeTitle = escapeHtml(title);
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
-      <defs>
-        <linearGradient id="g" x1="0%" x2="100%" y1="0%" y2="100%">
-          <stop offset="0%" stop-color="#dff3ff" />
-          <stop offset="100%" stop-color="#fff0d7" />
-        </linearGradient>
-      </defs>
-      <rect width="1200" height="900" fill="url(#g)" />
-      <circle cx="1020" cy="180" r="120" fill="rgba(23,134,216,0.16)" />
-      <circle cx="220" cy="760" r="160" fill="rgba(255,180,87,0.18)" />
-      <text x="80" y="410" font-size="56" font-family="Noto Sans JP, sans-serif" fill="#1786d8" font-weight="700">Yokohama Trip</text>
-      <text x="80" y="500" font-size="78" font-family="Noto Sans JP, sans-serif" fill="#18324a" font-weight="800">${safeTitle}</text>
-      <text x="80" y="590" font-size="34" font-family="Noto Sans JP, sans-serif" fill="#5d7083">photo preview unavailable</text>
-    </svg>
-  `;
-
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+function appUrlForPlatform(appLink) {
+  const userAgent = navigator.userAgent || "";
+  if (/Android/i.test(userAgent)) return appLink.androidUrl;
+  if (/iPhone|iPad|iPod/i.test(userAgent)) return appLink.iosUrl;
+  return appLink.fallbackUrl;
 }
 
-function typeLabel(type) {
-  return (
-    {
-      train: "電車",
-      transit: "電車",
-      spot: "観光",
-      walk: "徒歩",
-      meal: "食事",
-      event: "イベント",
-      hotel: "ホテル"
-    }[type] || type
-  );
-}
-
-function renderTabs() {
-  tabs.innerHTML = tripDays
-    .map(
-      (day) => `
-        <button class="day-tab ${day.id === activeDayId ? "is-active" : ""}" type="button" aria-selected="${
-          day.id === activeDayId
-        }" data-day-id="${day.id}">
-          ${day.label}
-        </button>
-      `
-    )
-    .join("");
-
-  tabs.querySelectorAll(".day-tab").forEach((button) => {
-    button.addEventListener("click", () => {
-      activeDayId = button.dataset.dayId;
-      renderTabs();
-      render();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  });
-}
-
-function renderSummary(day) {
-  return `
-    <section class="panel summary-card">
-      <div>
-        <div class="summary-date">${day.shortDate}</div>
-        <h2 class="summary-title">${day.title}</h2>
-        <p class="summary-copy">${day.summary}</p>
-      </div>
-      <div class="stats-grid">
-        ${day.stats
-          .map(
-            (stat) => `
-              <div class="stat-chip">
-                <span>${stat.label}</span>
-                <strong>${stat.value}</strong>
-              </div>
-            `
-          )
-          .join("")}
-      </div>
-    </section>
-  `;
-}
-
-function renderMap(day) {
-  const embedUrl = day.map.embedUrl || buildGoogleEmbedUrl(day.map);
-  const openUrl = buildGoogleMapsLink(day.map);
-
-  return `
-    <section class="panel">
-      <div class="section-head">
-        <h2>今日のルート</h2>
-        <span class="section-tag">${day.map.coverage}</span>
-      </div>
-      <iframe class="map-frame" title="${day.label} のルート" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="${embedUrl}"></iframe>
-      <p class="map-note">${day.map.note}</p>
-      <div class="action-row">
-        <a class="action-link primary" href="${openUrl}" target="_blank" rel="noreferrer">Google Mapsで開く</a>
-      </div>
-    </section>
-  `;
-}
-
-function renderTimeline(day) {
-  return `
-    <section class="panel">
-      <div class="section-head">
-        <h2>スケジュール</h2>
-        <span class="section-tag">Timeline</span>
+function renderDay(dayIndex) {
+  const day = tripDays[dayIndex];
+  const nextDay = tripDays[dayIndex + 1];
+  dayPanel.innerHTML = `
+    <article class="day-panel">
+      <header class="day-panel-header">
+        <div>
+          <p class="eyebrow">${day.day} / ${day.date}</p>
+          <h3>${day.title}</h3>
+        </div>
+        <p>${day.description}</p>
+      </header>
+      <div class="day-summary">
+        ${day.summary.map(([label, value]) => `<div class="summary-item"><span>${label}</span><strong>${value}</strong></div>`).join("")}
       </div>
       <div class="timeline">
-        ${day.timeline
-          .map(
-            (item) => `
-              <article class="timeline-item">
-                <img class="timeline-media" src="${item.image || scheduleImages[item.type] || scheduleImages.train}" alt="${item.title} の画像" />
-                <div class="timeline-time">${item.time}</div>
-                <div class="timeline-body">
-                  <div class="timeline-top">
-                    <span class="type-badge type-${item.type}">${typeLabel(item.type)}</span>
-                    <h3 class="timeline-title">${item.title}</h3>
-                  </div>
-                  <div class="timeline-detail">${item.detail}</div>
-                </div>
-              </article>
-            `
-          )
-          .join("")}
+        ${day.entries.map((entry, entryIndex) => `
+          <article class="timeline-item">
+            <div class="timeline-time">${entry.time}</div>
+            <div class="timeline-rail" aria-hidden="true"><span></span></div>
+            <div class="timeline-card">
+              ${entry.image ? `<img class="${entry.image.includes("sanuki_udon") ? "is-flipped" : ""}" src="${entry.image}" alt="${entry.alt}" loading="lazy" />` : `<div class="timeline-placeholder" role="img" aria-label="${entry.alt}"><span>PHOTO</span></div>`}
+              <div class="timeline-copy">
+                <span class="type-tag">${entry.type}</span>
+                <h4>${entry.title}</h4>
+                ${entry.detail ? `<p>${entry.detail}</p>` : ""}
+                ${(entry.map || entry.mapPlaces || entry.appLink || entry.officialLinks?.length) ? `<div class="card-links">
+                  ${entry.map || entry.mapPlaces ? `<a href="${entry.mapPlaces ? mapsMultiLocationUrl(entry.mapPlaces) : mapsUrl(entry.map)}" target="_blank" rel="noreferrer"><span data-icon="pin" aria-hidden="true"></span>地図を見る</a>` : ""}
+                  ${entry.appLink ? `<a class="app-link" href="${appUrlForPlatform(entry.appLink)}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>${entry.appLink.label}</a>` : ""}
+                  ${entry.restaurantList ? `<button class="restaurant-list-toggle" type="button" data-restaurant-toggle="restaurant-list-${dayIndex}-${entryIndex}" aria-expanded="false"><span data-icon="pin" aria-hidden="true"></span>お店のリスト</button>` : ""}
+                  ${(entry.officialLinks || []).map((link) => `<a class="official-link" href="${link.url}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>${link.label}</a>`).join("")}
+                </div>` : ""}
+                ${entry.restaurantList ? `<div class="restaurant-list" id="restaurant-list-${dayIndex}-${entryIndex}" hidden>
+                  <p class="restaurant-list-title">讃岐うどんのお店候補</p>
+                  <ul>
+                    ${entry.restaurantList.map((restaurant) => `<li>
+                      <div>
+                        <strong>${restaurant.name}</strong>
+                        <span>${restaurant.area} / ${restaurant.address}</span>
+                      </div>
+                      <div class="restaurant-list-links">
+                        <a href="${mapsUrl(restaurant.address)}" target="_blank" rel="noreferrer"><span data-icon="pin" aria-hidden="true"></span>Googleマップ</a>
+                        <a href="${restaurant.tabelogUrl}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>食べログ</a>
+                      </div>
+                    </li>`).join("")}
+                  </ul>
+                </div>` : ""}
+              </div>
+            </div>
+          </article>
+        `).join("")}
       </div>
-    </section>
+      ${nextDay ? `<a class="day-next" href="#schedule" data-next-day="${dayIndex + 1}"><span>次の予定</span><strong>${nextDay.day} ${nextDay.date}　${nextDay.title}</strong><span data-icon="arrow-right" aria-hidden="true"></span></a>` : `<div class="day-next"><span>旅の終わり</span><strong>尾張瀬戸駅へ</strong><span data-icon="check" aria-hidden="true"></span></div>`}
+    </article>
   `;
-}
-
-function renderSpots(day) {
-  return `
-    <section class="panel">
-      <div class="section-head">
-        <h2>スポット情報</h2>
-        <span class="section-tag">Photo + Link</span>
-      </div>
-      <div class="cards">
-        ${day.spots
-          .map(
-            (spot) => `
-              <article class="panel spot-card">
-                <img class="spot-media" src="${spot.image}" alt="${spot.name} のイメージ" loading="lazy" referrerpolicy="no-referrer" data-fallback="${escapeHtml(
-                  spot.name
-                )}" />
-                <div class="spot-body">
-                  <div>
-                    <h3>${spot.name}</h3>
-                    <div class="spot-meta">
-                      <span class="meta-pill">${spot.area}</span>
-                      <span class="meta-pill">${spot.stay}</span>
-                    </div>
-                  </div>
-                  <div class="spot-description">${spot.description}</div>
-                  <div class="spot-address">${spot.address}</div>
-                  <div class="action-row">
-                    ${spot.officialUrl ? `<a class="action-link primary" href="${spot.officialUrl}" target="_blank" rel="noreferrer">公式サイト</a>` : ""}
-                    <a class="action-link secondary" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                      spot.name
-                    )}" target="_blank" rel="noreferrer">場所を開く</a>
-                  </div>
-                </div>
-              </article>
-            `
-          )
-          .join("")}
-      </div>
-    </section>
-  `;
-}
-
-function renderTrains(day) {
-  return `
-    <section class="panel">
-      <div class="section-head">
-        <h2>電車移動の詳細</h2>
-        <span class="section-tag">Rail</span>
-      </div>
-      <div class="cards">
-        ${day.trains
-          .map(
-            (train) => `
-              <article class="panel train-card">
-                <div class="train-head">
-                  <h3>${train.title}</h3>
-                  <div class="train-summary">${train.departureTime} → ${train.arrivalTime}</div>
-                </div>
-                <div class="train-stations">
-                  <div class="station-block">
-                    <span>出発</span>
-                    <strong>${train.fromStation}</strong>
-                  </div>
-                  <div class="route-arrow">→</div>
-                  <div class="station-block">
-                    <span>到着</span>
-                    <strong>${train.toStation}</strong>
-                  </div>
-                </div>
-                <div class="spot-note">利用路線: ${train.lines.join(" / ")}</div>
-                <div class="spot-note">乗換回数: ${train.transferCount}回</div>
-                <ol class="step-list">
-                  ${train.steps.map((step) => `<li>${step}</li>`).join("")}
-                </ol>
-                <div class="train-note">${train.note}</div>
-              </article>
-            `
-          )
-          .join("")}
-      </div>
-    </section>
-  `;
-}
-
-function renderMeals(day) {
-  if (!day.meals.length) {
-    return `
-      <section class="panel">
-        <div class="section-head">
-          <h2>食事メモ</h2>
-          <span class="section-tag">Food</span>
-        </div>
-        <div class="empty-state">この日は食事候補を個別カード化していません。</div>
-      </section>
-    `;
-  }
-
-  return `
-    <section class="panel">
-      <div class="section-head">
-        <h2>食事メモ</h2>
-        <span class="section-tag">Food</span>
-      </div>
-      <div class="cards">
-        ${day.meals
-          .map(
-            (meal) => `
-              <article class="panel meal-card">
-                <div class="meal-head">
-                  <h3>${meal.name}</h3>
-                  <span class="meal-tag">${meal.timing}</span>
-                </div>
-                <div class="meal-description">${meal.description}</div>
-                ${meal.url ? `<div class="action-row"><a class="action-link secondary" href="${meal.url}" target="_blank" rel="noreferrer">外部サイト</a></div>` : ""}
-              </article>
-            `
-          )
-          .join("")}
-      </div>
-    </section>
-  `;
-}
-
-function renderNotes(day) {
-  return `
-    <section class="panel">
-      <div class="section-head">
-        <h2>メモ</h2>
-        <span class="section-tag">Useful Tips</span>
-      </div>
-      <ul class="info-list">
-        ${day.notes.map((note) => `<li>${note}</li>`).join("")}
-      </ul>
-    </section>
-  `;
-}
-
-function renderFooter() {
-  return `
-    <section class="footer-note">
-      <p>${tripWideNotes.join(" ")}</p>
-    </section>
-  `;
-}
-
-function applyImageFallbacks() {
-  document.querySelectorAll("img[data-fallback]").forEach((image) => {
-    image.addEventListener(
-      "error",
-      () => {
-        image.src = createPlaceholderDataUri(image.dataset.fallback);
-      },
-      { once: true }
-    );
+  dayPanel.querySelectorAll("[data-icon]").forEach((node) => {
+    const key = iconKey(node.dataset.icon);
+    if (iconPaths[key]) node.innerHTML = iconPaths[key];
+  });
+  dayPanel.querySelectorAll("[data-restaurant-toggle]").forEach((button) => {
+    const list = document.getElementById(button.dataset.restaurantToggle);
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!expanded));
+      list.hidden = expanded;
+    });
+  });
+  dayPanel.querySelector("[data-next-day]")?.addEventListener("click", (event) => {
+    event.preventDefault();
+    setActiveDay(Number(event.currentTarget.dataset.nextDay));
+    document.querySelector("#schedule").scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
 
-function render() {
-  const day = tripDays.find((item) => item.id === activeDayId) || tripDays[0];
-
-  app.innerHTML = `
-    <div class="content">
-      ${renderSummary(day)}
-      ${renderMap(day)}
-      ${renderTimeline(day)}
-      ${renderSpots(day)}
-      ${renderTrains(day)}
-      ${renderMeals(day)}
-      ${renderNotes(day)}
-      ${renderFooter()}
-    </div>
-  `;
-
-  applyImageFallbacks();
+function setActiveDay(dayIndex) {
+  dayTabs.forEach((tab, index) => {
+    const active = index === dayIndex;
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-selected", String(active));
+  });
+  renderDay(dayIndex);
 }
 
-renderTabs();
-render();
+dayTabs.forEach((tab) => {
+  tab.addEventListener("click", () => setActiveDay(Number(tab.dataset.day)));
+});
+
+setActiveDay(0);
+
+const heroSlides = [...document.querySelectorAll(".hero-slide")];
+const heroDots = [...document.querySelectorAll(".progress-dot")];
+const heroNext = document.querySelector("#heroNext");
+let heroIndex = 0;
+let heroTimer;
+
+function showHero(index) {
+  heroIndex = (index + heroSlides.length) % heroSlides.length;
+  heroSlides.forEach((slide, slideIndex) => slide.classList.toggle("is-active", slideIndex === heroIndex));
+  heroDots.forEach((dot, dotIndex) => {
+    const active = dotIndex === heroIndex;
+    dot.classList.toggle("is-active", active);
+    dot.setAttribute("aria-selected", String(active));
+  });
+}
+
+function restartHeroTimer() {
+  window.clearInterval(heroTimer);
+  heroTimer = window.setInterval(() => showHero(heroIndex + 1), 6000);
+}
+
+heroDots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    showHero(Number(dot.dataset.heroControl));
+    restartHeroTimer();
+  });
+});
+
+heroNext?.addEventListener("click", () => {
+  showHero(heroIndex + 1);
+  restartHeroTimer();
+});
+
+restartHeroTimer();
+
+const noteField = document.querySelector("#tripNote");
+const saveNoteButton = document.querySelector("#saveNote");
+const saveStatus = document.querySelector("#saveStatus");
+const noteStorageKey = "setouchi-family-trip-note";
+
+try {
+  noteField.value = window.localStorage.getItem(noteStorageKey) || "";
+} catch {
+  // localStorage may be unavailable when the page is opened with stricter browser privacy settings.
+}
+
+saveNoteButton?.addEventListener("click", () => {
+  try {
+    window.localStorage.setItem(noteStorageKey, noteField.value);
+    saveStatus.textContent = "保存しました";
+  } catch {
+    saveStatus.textContent = "このブラウザでは保存できません";
+  }
+  window.setTimeout(() => {
+    saveStatus.textContent = "";
+  }, 2200);
+});
+
+document.querySelector("#shareButton")?.addEventListener("click", async () => {
+  const shareData = {
+    title: "瀬戸内 家族旅｜WEBしおり",
+    text: "岡山・香川・淡路島・神戸をめぐる家族旅のしおりです。",
+    url: window.location.href
+  };
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+    } catch {
+      // Sharing can be cancelled by the user.
+    }
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+    window.alert("しおりのURLをコピーしました");
+  } catch {
+    window.alert("このページのURLを共有してください");
+  }
+});
+
+const sectionLinks = [...document.querySelectorAll(".bottom-nav-item")];
+const sectionTargets = ["home", "schedule", "route", "memo"].map((id) => document.getElementById(id));
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    sectionLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${visible.target.id}`));
+  },
+  { rootMargin: "-28% 0px -58% 0px", threshold: [0.1, 0.4, 0.8] }
+);
+sectionTargets.forEach((section) => sectionObserver.observe(section));
