@@ -672,6 +672,12 @@ svg {
   color: var(--orange);
 }
 
+.card-links .reservation-link {
+  border-color: var(--orange);
+  color: var(--orange);
+  background: #fffaf0;
+}
+
 .card-links svg,
 .map-link svg,
 .text-link svg {

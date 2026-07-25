@@ -94,10 +94,8 @@ const tripDays = [
         image: "./写真/toyota_rentacar.jpg",
         alt: "トヨタレンタカー",
         map: "トヨタレンタカー 新倉敷駅店",
-        officialLinks: [
-          { label: "トヨタ公式", url: "https://rent.toyota.co.jp/shop/?region=H&station=0045" },
-          { label: "予約メールを見る", url: "https://mail.google.com/mail/u/0/?tab=rm&ogbl#starred/FMfcgzQgMgNtgJHHHgHzDTwGTmQMzdfg" }
-        ]
+        officialLinks: [{ label: "トヨタ公式", url: "https://rent.toyota.co.jp/shop/?region=H&station=0045" }],
+        reservationLink: { label: "予約メールを見る", url: "https://mail.google.com/mail/u/0/?tab=rm&ogbl#starred/FMfcgzQgMgNtgJHHHgHzDTwGTmQMzdfg" }
       },
       {
         time: "12:30–",
@@ -367,11 +365,12 @@ function renderDay(dayIndex) {
                 <span class="type-tag">${entry.type}</span>
                 <h4>${entry.title}</h4>
                 ${entry.detail ? `<p>${entry.detail}</p>` : ""}
-                ${(entry.map || entry.mapPlaces || entry.appLink || entry.officialLinks?.length || entry.facilityList?.length) ? `<div class="card-links">
+                ${(entry.map || entry.mapPlaces || entry.appLink || entry.officialLinks?.length || entry.facilityList?.length || entry.reservationLink) ? `<div class="card-links">
                   ${entry.map || entry.mapPlaces ? `<a href="${entry.mapPlaces ? mapsMultiLocationUrl(entry.mapPlaces) : mapsUrl(entry.map)}" target="_blank" rel="noreferrer"><span data-icon="pin" aria-hidden="true"></span>地図を見る</a>` : ""}
                   ${entry.appLink ? `<a class="app-link" href="${appUrlForPlatform(entry.appLink)}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>${entry.appLink.label}</a>` : ""}
                   ${entry.restaurantList ? `<button class="restaurant-list-toggle" type="button" data-restaurant-toggle="restaurant-list-${dayIndex}-${entryIndex}" aria-expanded="false"><span data-icon="pin" aria-hidden="true"></span>お店のリスト</button>` : ""}
                   ${entry.facilityList ? `<button class="restaurant-list-toggle" type="button" data-facility-toggle="facility-list-${dayIndex}-${entryIndex}" aria-expanded="false"><span data-icon="pin" aria-hidden="true"></span>atoa</button>` : ""}
+                  ${entry.reservationLink ? `<a class="reservation-link" href="${entry.reservationLink.url}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>${entry.reservationLink.label}</a>` : ""}
                   ${(entry.officialLinks || []).map((link) => `<a class="official-link" href="${link.url}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>${link.label}</a>`).join("")}
                 </div>` : ""}
                 ${entry.restaurantList ? `<div class="restaurant-list" id="restaurant-list-${dayIndex}-${entryIndex}" hidden>
