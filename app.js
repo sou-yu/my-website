@@ -48,7 +48,7 @@ const tripDays = [
         facilityList: [
           {
             name: "アウトドアヴィレッジやかげ",
-            image: "./写真/outdoor_yakage.jpg",
+            image: "./写真/outdoor_yakage.png",
             alt: "アウトドアヴィレッジやかげ",
             officialUrl: "https://www.okayama-kanko.jp/okatabi/detail_1807.html",
             mapQuery: "アウトドアヴィレッジやかげ"
