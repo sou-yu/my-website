@@ -525,7 +525,7 @@ saveNoteButton?.addEventListener("click", () => {
 document.querySelector("#shareButton")?.addEventListener("click", async () => {
   const shareData = {
     title: "瀬戸内 家族旅｜WEBしおり",
-    text: "岡山・香川・淡路島・神戸をめぐる家族旅のしおりです。",
+    text: "岡山・香川・徳島・淡路島・神戸をめぐる家族旅のしおりです。",
     url: window.location.href
   };
   if (navigator.share) {
