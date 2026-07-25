@@ -43,7 +43,17 @@ const tripDays = [
         detail: "おばあちゃんとお姉ちゃんと会う。晩御飯",
         image: "./写真/yakage_jikka.png",
         alt: "岡山の町並み",
-        map: "岡山県"
+        map: "岡山県",
+        facilityButtonLabel: "アウトドアヴィレッジやかげ",
+        facilityList: [
+          {
+            name: "アウトドアヴィレッジやかげ",
+            image: "./写真/outdoor_yakage.jpg",
+            alt: "アウトドアヴィレッジやかげ",
+            officialUrl: "https://www.okayama-kanko.jp/okatabi/detail_1807.html",
+            mapQuery: "アウトドアヴィレッジやかげ"
+          }
+        ]
       },
       {
         time: "20:00–",
