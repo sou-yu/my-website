@@ -245,9 +245,20 @@ const tripDays = [
         officialLinks: [{ label: "お土産を見る", url: "https://www.dailyservice.co.jp/souvenir/shin-kobe" }],
         title: "新神戸駅",
         detail: "お土産を買う",
+        notice: "ANAクラウンプラザホテル神戸に向かいトヨタレンタカー返却専用ゲートへ",
         image: "./写真/shinkobe.jpg",
         alt: "新神戸駅",
-        map: "新神戸駅"
+        map: "新神戸駅",
+        facilityButtonLabel: "トヨタレンタカー新神戸駅前店",
+        facilityList: [
+          {
+            name: "トヨタレンタカー新神戸駅前店",
+            image: "./写真/toyota_rentacar_shinkobe.jpg",
+            alt: "トヨタレンタカー新神戸駅前店",
+            address: "〒650-0002 神戸市中央区北野町1-1 ANAクラウンプラザ神戸5F",
+            mapQuery: "〒650-0002 神戸市中央区北野町1-1 ANAクラウンプラザ神戸5F"
+          }
+        ]
       },
       {
         time: "16:00–17:30",
@@ -365,11 +376,12 @@ function renderDay(dayIndex) {
                 <span class="type-tag">${entry.type}</span>
                 <h4>${entry.title}</h4>
                 ${entry.detail ? `<p>${entry.detail}</p>` : ""}
+                ${entry.notice ? `<p class="card-notice">${entry.notice}</p>` : ""}
                 ${(entry.map || entry.mapPlaces || entry.appLink || entry.officialLinks?.length || entry.facilityList?.length || entry.reservationLink) ? `<div class="card-links">
                   ${entry.map || entry.mapPlaces ? `<a href="${entry.mapPlaces ? mapsMultiLocationUrl(entry.mapPlaces) : mapsUrl(entry.map)}" target="_blank" rel="noreferrer"><span data-icon="pin" aria-hidden="true"></span>地図を見る</a>` : ""}
                   ${entry.appLink ? `<a class="app-link" href="${appUrlForPlatform(entry.appLink)}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>${entry.appLink.label}</a>` : ""}
                   ${entry.restaurantList ? `<button class="restaurant-list-toggle" type="button" data-restaurant-toggle="restaurant-list-${dayIndex}-${entryIndex}" aria-expanded="false"><span data-icon="pin" aria-hidden="true"></span>お店のリスト</button>` : ""}
-                  ${entry.facilityList ? `<button class="restaurant-list-toggle" type="button" data-facility-toggle="facility-list-${dayIndex}-${entryIndex}" aria-expanded="false"><span data-icon="pin" aria-hidden="true"></span>atoa</button>` : ""}
+                  ${entry.facilityList ? `<button class="restaurant-list-toggle" type="button" data-facility-toggle="facility-list-${dayIndex}-${entryIndex}" aria-expanded="false"><span data-icon="pin" aria-hidden="true"></span>${entry.facilityButtonLabel || "atoa"}</button>` : ""}
                   ${entry.reservationLink ? `<a class="reservation-link" href="${entry.reservationLink.url}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>${entry.reservationLink.label}</a>` : ""}
                   ${(entry.officialLinks || []).map((link) => `<a class="official-link" href="${link.url}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>${link.label}</a>`).join("")}
                 </div>` : ""}
@@ -393,9 +405,11 @@ function renderDay(dayIndex) {
                     <img src="${facility.image}" alt="${facility.alt}" loading="lazy" />
                     <div class="facility-copy">
                       <strong>${facility.name}</strong>
+                      ${facility.address ? `<span>${facility.address}</span>` : ""}
                       <div class="restaurant-list-links">
-                        <a href="${facility.officialUrl}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>公式サイト</a>
-                        <a href="${mapsUrl(facility.parking)}" target="_blank" rel="noreferrer"><span data-icon="pin" aria-hidden="true"></span>${facility.parking} Googleマップ</a>
+                        ${facility.officialUrl ? `<a href="${facility.officialUrl}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>公式サイト</a>` : ""}
+                        ${facility.parking ? `<a href="${mapsUrl(facility.parking)}" target="_blank" rel="noreferrer"><span data-icon="pin" aria-hidden="true"></span>${facility.parking} Googleマップ</a>` : ""}
+                        ${facility.mapQuery ? `<a href="${mapsUrl(facility.mapQuery)}" target="_blank" rel="noreferrer"><span data-icon="pin" aria-hidden="true"></span>住所のGoogleマップ</a>` : ""}
                       </div>
                     </div>
                   </article>`).join("")}

@@ -645,6 +645,17 @@ svg {
   white-space: pre-line;
 }
 
+.timeline-copy .card-notice {
+  margin-top: 8px;
+  padding: 8px 9px;
+  border-left: 2px solid var(--orange);
+  color: var(--ink);
+  background: #fffaf0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
 .card-links {
   display: flex;
   flex-wrap: wrap;
@@ -791,6 +802,12 @@ svg {
 .facility-copy strong {
   color: var(--ink);
   font-size: 0.76rem;
+}
+
+.facility-copy > span {
+  color: var(--ink-soft);
+  font-size: 0.66rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 560px) {
