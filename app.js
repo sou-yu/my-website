@@ -251,7 +251,7 @@ const tripDays = [
       {
         time: "12:00–14:30",
         type: "KOBE",
-        title: "昼食と神戸観光",
+        title: "神戸観光",
         detail: "",
         image: "./写真/kobe.jpg",
         alt: "神戸の景色",
