@@ -94,7 +94,10 @@ const tripDays = [
         image: "./写真/toyota_rentacar.jpg",
         alt: "トヨタレンタカー",
         map: "トヨタレンタカー 新倉敷駅店",
-        officialLinks: [{ label: "トヨタ公式", url: "https://rent.toyota.co.jp/shop/?region=H&station=0045" }]
+        officialLinks: [
+          { label: "トヨタ公式", url: "https://rent.toyota.co.jp/shop/?region=H&station=0045" },
+          { label: "予約メールを見る", url: "https://mail.google.com/mail/u/0/?tab=rm&ogbl#starred/FMfcgzQgMgNtgJHHHgHzDTwGTmQMzdfg" }
+        ]
       },
       {
         time: "12:30–",
