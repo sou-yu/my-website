@@ -1,15 +1,6 @@
 const appLinks = {
   yahooTransit: {
     label: "Yahoo乗換案内アプリを開く",
-    iosUrl: "https://apps.apple.com/jp/app/yahoo-%E4%B9%97%E6%8F%9B%E6%A1%88%E5%86%85/id291676451",
-    androidUrl: "https://play.google.com/store/apps/details?id=jp.co.yahoo.android.apps.transit",
-    fallbackUrl: "https://transit.yahoo.co.jp/"
-  },
-  ex: {
-    label: "EXアプリを開く",
-    iosUrl: "https://apps.apple.com/jp/app/ex%E3%82%A2%E3%83%97%E3%83%AA-jr%E6%9D%B1%E6%B5%B7%E5%85%AC%E5%BC%8F/id1153448703",
-    androidUrl: "https://play.google.com/store/apps/details?id=jp.co.jr_central.exreserve",
-    fallbackUrl: "https://jr-central.co.jp/ex/lp/app/"
   }
 };
 
@@ -28,7 +19,7 @@ const tripDays = [
       {
         time: "9:30–10:30",
         type: "TRAIN",
-        appLink: appLinks.yahooTransit,
+        appLink: { ...appLinks.yahooTransit, route: { from: "尾張瀬戸駅", to: "名古屋駅", date: "2026-08-04", time: "09:30" } },
         title: "尾張瀬戸駅 → 名古屋駅",
         detail: "尾張瀬戸駅から名古屋駅へ",
         image: "./写真/owari_seto.jpg",
@@ -38,7 +29,7 @@ const tripDays = [
       {
         time: "12:00–13:00",
         type: "SHINKANSEN",
-        appLink: appLinks.ex,
+        appLink: { ...appLinks.yahooTransit, route: { from: "名古屋駅", via: ["岡山駅"], to: "新倉敷駅", date: "2026-08-04", time: "11:10" } },
         title: "名古屋 → 岡山 → 新倉敷",
         detail: "名古屋(11:10) → のぞみ21号 → 岡山(12:47)\n岡山(12:50) → こだま949号 → 新倉敷(12:59)\n新幹線",
         image: "./写真/nagoya_station.jpg",
@@ -251,7 +242,7 @@ const tripDays = [
       {
         time: "16:00–17:30",
         type: "SHINKANSEN",
-        appLink: appLinks.ex,
+        appLink: { ...appLinks.yahooTransit, route: { from: "新神戸駅", to: "名古屋駅", date: "2026-08-06", time: "16:00" } },
         title: "新神戸 → 名古屋",
         detail: "新神戸(16:01) → のぞみ168号 → 名古屋(17:04)\n新幹線",
         image: "./写真/nagoya_station.jpg",
@@ -261,7 +252,7 @@ const tripDays = [
       {
         time: "17:30–18:30",
         type: "TRAIN",
-        appLink: appLinks.yahooTransit,
+        appLink: { ...appLinks.yahooTransit, route: { from: "名古屋駅", to: "尾張瀬戸駅", date: "2026-08-06", time: "17:30" } },
         title: "名古屋駅 → 尾張瀬戸駅",
         detail: "",
         image: "./写真/owari_seto.jpg",
@@ -303,11 +294,39 @@ function mapsMultiLocationUrl(places) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(places.join("|"))}`;
 }
 
+function yahooTransitUrl(route) {
+  const params = new URLSearchParams({
+    from: route.from,
+    to: route.to,
+    type: "1",
+    ticket: "ic",
+    expkind: "1",
+    ws: "3",
+    s: "0",
+    al: "1",
+    shin: "1",
+    ex: "1",
+    hb: "1",
+    lb: "1",
+    sr: "1"
+  });
+  (route.via || []).forEach((station, index) => params.set(`via${String(index + 1).padStart(2, "0")}`, station));
+  if (route.date) {
+    const [year, month, day] = route.date.split("-");
+    params.set("y", year);
+    params.set("m", month);
+    params.set("d", day);
+  }
+  if (route.time) {
+    const [hour, minute] = route.time.split(":");
+    params.set("hh", hour);
+    params.set("mm", minute);
+  }
+  return `https://transit.yahoo.co.jp/search/result?${params.toString()}`;
+}
+
 function appUrlForPlatform(appLink) {
-  const userAgent = navigator.userAgent || "";
-  if (/Android/i.test(userAgent)) return appLink.androidUrl;
-  if (/iPhone|iPad|iPod/i.test(userAgent)) return appLink.iosUrl;
-  return appLink.fallbackUrl;
+  return appLink.route ? yahooTransitUrl(appLink.route) : "https://transit.yahoo.co.jp/promo/app";
 }
 
 function renderDay(dayIndex) {
