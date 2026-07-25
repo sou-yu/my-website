@@ -256,6 +256,7 @@ const tripDays = [
             image: "./写真/toyota_rentacar_shinkobe.jpg",
             alt: "トヨタレンタカー新神戸駅前店",
             address: "〒650-0002 神戸市中央区北野町1-1 ANAクラウンプラザ神戸5F",
+            officialUrl: "https://rent.toyota.co.jp/shop/detail.aspx?eCode=008&lat=124924771&lon=486712924&mode=&rCode=65402&udFlg=2",
             mapQuery: "〒650-0002 神戸市中央区北野町1-1 ANAクラウンプラザ神戸5F"
           }
         ]
