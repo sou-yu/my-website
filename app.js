@@ -246,7 +246,17 @@ const tripDays = [
         image: "./写真/akashi_hashi.jpg",
         alt: "明石海峡大橋",
         map: "明石海峡大橋",
-        officialLinks: [{ label: "JB本四高速公式", url: "https://www.jb-honshi.co.jp/corp_index/technology/introduction/introduction_akashi.html" }]
+        officialLinks: [{ label: "JB本四高速公式", url: "https://www.jb-honshi.co.jp/corp_index/technology/introduction/introduction_akashi.html" }],
+        facilityButtonLabel: "淡路SA",
+        facilityList: [
+          {
+            name: "淡路サービスエリア",
+            image: "./写真/Awaji-SA.jpg",
+            alt: "淡路サービスエリア",
+            officialUrl: "https://www.jb-highway.co.jp/sapa/awaji_up.html",
+            mapQuery: "淡路サービスエリア 上り 兵庫県淡路市岩屋"
+          }
+        ]
       },
       {
         time: "12:00–14:30",
