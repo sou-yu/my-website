@@ -186,7 +186,16 @@ const tripDays = [
         image: "./写真/grand-mercure-awajiisland.jpg",
         alt: "グランドメルキュール淡路島",
         map: "グランドメルキュール淡路島",
-        officialLinks: [{ label: "ホテル公式", url: "https://grand-mercure-awajiisland-resortandspa.jp/" }]
+        officialLinks: [{ label: "ホテル公式", url: "https://grand-mercure-awajiisland-resortandspa.jp/" }],
+        facilityButtonLabel: "ホテル夕食",
+        facilityList: [
+          {
+            name: "グランドメルキュール淡路島 ホテル夕食",
+            image: "./写真/hotel_dinner.png",
+            alt: "グランドメルキュール淡路島の夕食",
+            officialUrl: "https://grand-mercure-awajiisland-resortandspa.jp/restaurant/le-sensoriel/buffet/#dinner"
+          }
+        ]
       }
     ]
   },
@@ -208,7 +217,16 @@ const tripDays = [
         detail: "バイキング",
         image: "./写真/grand-mercure-awajiisland.jpg",
         alt: "グランドメルキュール淡路島",
-        officialLinks: [{ label: "ホテル公式", url: "https://grand-mercure-awajiisland-resortandspa.jp/" }]
+        officialLinks: [{ label: "ホテル公式", url: "https://grand-mercure-awajiisland-resortandspa.jp/" }],
+        facilityButtonLabel: "ホテル朝食",
+        facilityList: [
+          {
+            name: "グランドメルキュール淡路島 ホテル朝食",
+            image: "./写真/hotel_break_fast.png",
+            alt: "グランドメルキュール淡路島の朝食",
+            officialUrl: "https://grand-mercure-awajiisland-resortandspa.jp/restaurant/le-sensoriel/buffet/#breakfast"
+          }
+        ]
       },
       {
         time: "9:30–11:00",
