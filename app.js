@@ -227,7 +227,16 @@ const tripDays = [
         image: "./写真/kobe.jpg",
         alt: "神戸の景色",
         map: "神戸",
-        officialLinks: [{ label: "神戸観光公式", url: "https://www.feel-kobe.jp/" }]
+        officialLinks: [{ label: "神戸観光公式", url: "https://www.feel-kobe.jp/" }],
+        facilityList: [
+          {
+            name: "atoa",
+            image: "./写真/atoa.jpg",
+            alt: "atoa",
+            officialUrl: "https://atoa-kobe.jp/",
+            parking: "タイムズ神戸新港町"
+          }
+        ]
       },
       {
         time: "15:30–",
@@ -355,10 +364,11 @@ function renderDay(dayIndex) {
                 <span class="type-tag">${entry.type}</span>
                 <h4>${entry.title}</h4>
                 ${entry.detail ? `<p>${entry.detail}</p>` : ""}
-                ${(entry.map || entry.mapPlaces || entry.appLink || entry.officialLinks?.length) ? `<div class="card-links">
+                ${(entry.map || entry.mapPlaces || entry.appLink || entry.officialLinks?.length || entry.facilityList?.length) ? `<div class="card-links">
                   ${entry.map || entry.mapPlaces ? `<a href="${entry.mapPlaces ? mapsMultiLocationUrl(entry.mapPlaces) : mapsUrl(entry.map)}" target="_blank" rel="noreferrer"><span data-icon="pin" aria-hidden="true"></span>地図を見る</a>` : ""}
                   ${entry.appLink ? `<a class="app-link" href="${appUrlForPlatform(entry.appLink)}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>${entry.appLink.label}</a>` : ""}
                   ${entry.restaurantList ? `<button class="restaurant-list-toggle" type="button" data-restaurant-toggle="restaurant-list-${dayIndex}-${entryIndex}" aria-expanded="false"><span data-icon="pin" aria-hidden="true"></span>お店のリスト</button>` : ""}
+                  ${entry.facilityList ? `<button class="restaurant-list-toggle" type="button" data-facility-toggle="facility-list-${dayIndex}-${entryIndex}" aria-expanded="false"><span data-icon="pin" aria-hidden="true"></span>atoa</button>` : ""}
                   ${(entry.officialLinks || []).map((link) => `<a class="official-link" href="${link.url}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>${link.label}</a>`).join("")}
                 </div>` : ""}
                 ${entry.restaurantList ? `<div class="restaurant-list" id="restaurant-list-${dayIndex}-${entryIndex}" hidden>
@@ -376,6 +386,18 @@ function renderDay(dayIndex) {
                     </li>`).join("")}
                   </ul>
                 </div>` : ""}
+                ${entry.facilityList ? `<div class="facility-list" id="facility-list-${dayIndex}-${entryIndex}" hidden>
+                  ${entry.facilityList.map((facility) => `<article class="facility-item">
+                    <img src="${facility.image}" alt="${facility.alt}" loading="lazy" />
+                    <div class="facility-copy">
+                      <strong>${facility.name}</strong>
+                      <div class="restaurant-list-links">
+                        <a href="${facility.officialUrl}" target="_blank" rel="noreferrer"><span data-icon="external" aria-hidden="true"></span>公式サイト</a>
+                        <a href="${mapsUrl(facility.parking)}" target="_blank" rel="noreferrer"><span data-icon="pin" aria-hidden="true"></span>${facility.parking} Googleマップ</a>
+                      </div>
+                    </div>
+                  </article>`).join("")}
+                </div>` : ""}
               </div>
             </div>
           </article>
@@ -390,6 +412,14 @@ function renderDay(dayIndex) {
   });
   dayPanel.querySelectorAll("[data-restaurant-toggle]").forEach((button) => {
     const list = document.getElementById(button.dataset.restaurantToggle);
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!expanded));
+      list.hidden = expanded;
+    });
+  });
+  dayPanel.querySelectorAll("[data-facility-toggle]").forEach((button) => {
+    const list = document.getElementById(button.dataset.facilityToggle);
     button.addEventListener("click", () => {
       const expanded = button.getAttribute("aria-expanded") === "true";
       button.setAttribute("aria-expanded", String(!expanded));

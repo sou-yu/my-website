@@ -752,6 +752,47 @@ svg {
   font-weight: 700;
 }
 
+.facility-list {
+  margin-top: 12px;
+  padding: 12px;
+  border-left: 2px solid var(--orange);
+  background: rgba(244, 241, 231, 0.72);
+}
+
+.facility-list[hidden] {
+  display: none;
+}
+
+.facility-item {
+  display: grid;
+  grid-template-columns: minmax(100px, 34%) 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.facility-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.facility-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.facility-copy strong {
+  color: var(--ink);
+  font-size: 0.76rem;
+}
+
+@media (max-width: 560px) {
+  .facility-item {
+    grid-template-columns: 1fr;
+  }
+}
+
 .day-next {
   display: flex;
   align-items: center;
