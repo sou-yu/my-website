@@ -203,7 +203,7 @@ const tripDays = [
     date: "8/6",
     day: "DAY 03",
     title: "淡路島から神戸へ",
-    description: "朝食後に淡路夢舞台へ。明石海峡大橋を渡って神戸を観光し、新神戸から名古屋へ。",
+    description: "朝食後に淡路ファームパーク イングランドの丘へ。明石海峡大橋を渡って神戸を観光し、新神戸から名古屋へ。",
     summary: [
       ["出発", "グランドメルキュール淡路島"],
       ["到着", "尾張瀬戸駅"],
@@ -231,12 +231,12 @@ const tripDays = [
       {
         time: "9:30–11:00",
         type: "SPOT",
-        title: "淡路夢舞台",
+        title: "淡路ファームパーク イングランドの丘",
         detail: "",
-        image: "./写真/yumebutai.jpg",
-        alt: "淡路夢舞台",
-        map: "淡路夢舞台",
-        officialLinks: [{ label: "淡路夢舞台公式", url: "https://www.yumebutai.co.jp/" }]
+        image: "./写真/England_farm.jpg",
+        alt: "淡路ファームパーク イングランドの丘",
+        map: "淡路ファームパーク イングランドの丘",
+        officialLinks: [{ label: "イングランドの丘公式", url: "https://www.england-hill.com/" }]
       },
       {
         time: "11:00–12:00",
